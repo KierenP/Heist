@@ -20,16 +20,6 @@ void PlayerCharacter::SetHealth(float val)
     }
 }
 
-bool PlayerCharacter::SetDirection(float val)
-{
-    if (val < 0 || val > 360)
-        return false;
-    else
-        mDirection = val;
-
-    return true;
-}
-
 void PlayerCharacter::Move(MoveDirections var, float TimeStep)
 {
     if (var == Up)
@@ -42,8 +32,8 @@ void PlayerCharacter::Move(MoveDirections var, float TimeStep)
         mPosX += mSpeed * TimeStep;
 }
 
-void PlayerCharacter::Render(sf::RenderWindow* pTarget)
+/*void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 {
     pTarget->draw(mSprite);
-}
+}*/
 

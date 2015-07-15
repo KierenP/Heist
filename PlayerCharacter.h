@@ -24,34 +24,34 @@ class PlayerCharacter// : public DrawableEntity (Class is still work in progress
 {
 public:
     PlayerCharacter();
+    PlayerCharacter(float pPosX, float pPosY, float pSpeed, float pHealth) :  mPosX(pPosX), mPosY(pPosY), mSpeed(pSpeed), mHealth(pHealth) {}
+
     ~PlayerCharacter();
 
     //Getters
     float GetPosX() { return mPosX; }
     float GetPosY() { return mPosY; }
-    float GetDirection() { return mDirection; }
     float GetSpeed() { return mSpeed; }
     float GetHealth() {return mHealth; }
-    sf::Sprite GetSprite() { return mSprite; }
+    //sf::Sprite GetSprite() { return mSprite; }
 
     //Setters
     void SetPosX(float val) { mPosX = val; }
     void SetPosY(float val) { mPosY = val; }
-    bool SetDirection(float val);
     void SetSpeed(float val) { mSpeed = val; }
     void SetHealth(float val);
-    void SetSprite(sf::Sprite val) { mSprite = val; }
+    //void SetSprite(sf::Sprite val) { mSprite = val; }
 
-    //Functions
+    //Member Functions
     void Move(MoveDirections val, float TimeStep);
-    void Render(sf::RenderWindow* pTarget);
+    //void Render(sf::RenderWindow* pTarget);
 
 private:
     sf::Sprite mSprite;
+    //sf::Texture mTexture;
 
     float mPosX;
     float mPosY;
-    float mDirection;
     float mSpeed;
     float mHealth;
 };
