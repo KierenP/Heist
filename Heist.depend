@@ -10,9 +10,8 @@
 
 1436920993 e:\codeblocks\projects\heist\include\drawableentity.h
 
-1436948288 source:f:\codeblocks\projects\heist\main.cpp
+1436958900 source:f:\codeblocks\projects\heist\main.cpp
 	"PlayerCharacter.h"
-	<SFML/Graphics.hpp>
 
 1436946761 f:\codeblocks\projects\heist\include\playercharacter.h
 	"DrawableEntity.h"
@@ -786,4 +785,16 @@
 	"DrawableEntity.h"
 	<SFML/Graphics.hpp>
 	<cmath>
+
+1436948238 source:f:\codeblocks\projects\heist\drawableentity.cpp
+
+1436958930 f:\codeblocks\projects\heist\playercharacter.h
+	"DrawableEntity.h"
+	<SFML/Graphics.hpp>
+	<cmath>
+
+1436946725 f:\codeblocks\projects\heist\drawableentity.h
+
+1436958317 source:f:\codeblocks\projects\heist\playercharacter.cpp
+	"PlayerCharacter.h"
 
