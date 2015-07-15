@@ -23,7 +23,7 @@ enum MoveDirections {
 class PlayerCharacter// : public DrawableEntity (Class is still work in progress)
 {
 public:
-    PlayerCharacter();
+    PlayerCharacter()
     PlayerCharacter(float pPosX, float pPosY, float pSpeed, float pHealth) :  mPosX(pPosX), mPosY(pPosY), mSpeed(pSpeed), mHealth(pHealth) {}
 
     ~PlayerCharacter();
@@ -33,22 +33,22 @@ public:
     float GetPosY() { return mPosY; }
     float GetSpeed() { return mSpeed; }
     float GetHealth() {return mHealth; }
-    //sf::Sprite GetSprite() { return mSprite; }
+    sf::Sprite GetSprite() { return mSprite; }
 
     //Setters
     void SetPosX(float val) { mPosX = val; }
     void SetPosY(float val) { mPosY = val; }
     void SetSpeed(float val) { mSpeed = val; }
     void SetHealth(float val);
-    //void SetSprite(sf::Sprite val) { mSprite = val; }
+    void SetSprite(sf::Sprite val) { mSprite = val; }
 
     //Member Functions
     void Move(MoveDirections val, float TimeStep);
-    //void Render(sf::RenderWindow* pTarget);
+    void Render(sf::RenderWindow* pTarget);
 
 private:
     sf::Sprite mSprite;
-    //sf::Texture mTexture;
+    sf::Texture mTexture;
 
     float mPosX;
     float mPosY;
