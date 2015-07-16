@@ -10,6 +10,15 @@ PlayerCharacter::~PlayerCharacter()
 
 }
 
+PlayerCharacter::PlayerCharacter(float pPosX, float pPosY, float pSpeed, float pHealth, sf::Texture pTexture)
+{
+    SetPosX(pPosX);
+    SetPosY(pPosY);
+    SetSpeed(pSpeed);
+    SetHealth(pHealth);
+    SetTexture(pTexture);
+}
+
 void PlayerCharacter::SetHealth(float val)
 {
     mHealth = val;
@@ -20,20 +29,32 @@ void PlayerCharacter::SetHealth(float val)
     }
 }
 
+void PlayerCharacter::SetTexture(sf::Texture val)
+{
+    mTexture = val;
+    mSprite.setTexture(GetTexture());
+}
+
 void PlayerCharacter::Move(MoveDirections var, float TimeStep)
 {
     if (var == Up)
-        mPosY -= mSpeed * TimeStep;
+        SetPosY(mPosX -= mSpeed * TimeStep);
     if (var == Down)
-        mPosY += mSpeed * TimeStep;
+        SetPosY(mPosX += mSpeed * TimeStep);
     if (var == Left)
-        mPosX -= mSpeed * TimeStep;
+        SetPosX(mPosY -= mSpeed * TimeStep);
     if (var == Right)
-        mPosX += mSpeed * TimeStep;
+        SetPosX(mPosY += mSpeed * TimeStep);
 }
 
 void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 {
     pTarget->draw(mSprite);
+}
+
+void PlayerCharacter::UpdateSprite()
+{
+    mSprite.setPosition(mPosX, mPosY);
+
 }
 
