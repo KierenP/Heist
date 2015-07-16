@@ -1,20 +1,22 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include <cmath>
 
 class Entity
 {
 public:
     Entity();
+    Entity(float px, float py) : mPosX(px), mPosY(py) {}
     ~Entity();
 
     //Getters
-    float GetPosX() { return PosX; }
-    float GetPosY() { return PosY; }
+    float GetPosX() { return mPosX; }
+    float GetPosY() { return mPosY; }
 
     //Setters
-    void SetPosX(float val) { PosX = val; }
-    void SetPosY(float val) { PosY = val; }
+    void SetPosX(float val) { mPosX = val; }
+    void SetPosY(float val) { mPosY = val; }
 
     //Member functions
     float DistanceToPoint(float px, float py);
@@ -23,9 +25,9 @@ public:
     float DirectionToPoint(float px, float py);
     float DirectionToPoint(Entity* pEntity);
 
-private:
-    float PosX;
-    float PosY;
+protected:
+    float mPosX;
+    float mPosY;
 };
 
-#endif ENTITY_H
+#endif //ENTITY_H

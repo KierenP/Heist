@@ -32,8 +32,8 @@ void PlayerCharacter::Move(MoveDirections var, float TimeStep)
         mPosX += mSpeed * TimeStep;
 }
 
-/*void PlayerCharacter::Render(sf::RenderWindow* pTarget)
+void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 {
     pTarget->draw(mSprite);
-}*/
+}
 

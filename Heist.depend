@@ -798,3 +798,15 @@
 1436958317 source:f:\codeblocks\projects\heist\playercharacter.cpp
 	"PlayerCharacter.h"
 
+1437029773 source:c:\users\kieren\documents\github\heist\playercharacter.cpp
+	"PlayerCharacter.h"
+
+1437032881 c:\users\kieren\documents\github\heist\playercharacter.h
+	"Entity.h"
+
+1437031964 source:c:\users\kieren\documents\github\heist\entity.cpp
+	"Entity.h"
+
+1437032874 c:\users\kieren\documents\github\heist\entity.h
+	<cmath>
+
