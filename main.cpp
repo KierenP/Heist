@@ -1,27 +1,26 @@
-#include "PlayerCharacter.h"
-
-void PollEvent(sf::RenderWindow* pTarget);
-
-sf::RenderWindow window(sf::VideoMode(1920, 1080), "Heist");
+#include <SFML/Graphics.hpp>
 
 int main()
 {
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
     while (window.isOpen())
-        PollEvent(&window);
-}
-
-void PollEvent(sf::RenderWindow* pTarget)
-{
-    sf::Event event;
-
-    while (pTarget->pollEvent(event))
     {
-        switch (event.type)
+        sf::Event event;
+        while (window.pollEvent(event))
         {
-        case sf::Event::Closed:
-            pTarget->clear();
+            if (event.type == sf::Event::Closed)
+                window.close();
         }
+
+        window.clear();
+        window.draw(shape);
+        window.display();
     }
+
+    return 0;
 }
 
 

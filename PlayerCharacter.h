@@ -23,7 +23,7 @@ public:
     float GetSpeed() { return mSpeed; }
     float GetHealth() {return mHealth; }
     sf::Sprite GetSprite() { return mSprite; }
-    sf::Sprite GetTexture() { return mTexture; }
+    sf::Texture GetTexture() { return mTexture; }
 
     //Setters
     void SetSpeed(float val) { mSpeed = val; }
