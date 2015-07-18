@@ -16,7 +16,8 @@ class PlayerCharacter : public Entity
 {
 public:
     PlayerCharacter();
-    PlayerCharacter(float pPosX, float pPosY, float pSpeed, float pHealth, sf::Texture pTexture);
+    PlayerCharacter(float pPosX, float pPosY, float pSpeed = 0, float pHealth = 0);
+    PlayerCharacter(float pPosX, float pPosY, sf::Texture pTexture, float pSpeed = 0, float pHealth = 0);
     ~PlayerCharacter();
 
     //Getters

@@ -10,13 +10,21 @@ PlayerCharacter::~PlayerCharacter()
 
 }
 
-PlayerCharacter::PlayerCharacter(float pPosX, float pPosY, float pSpeed, float pHealth, sf::Texture pTexture)
+PlayerCharacter::PlayerCharacter(float pPosX, float pPosY, sf::Texture pTexture, float pSpeed, float pHealth)
 {
     SetPosX(pPosX);
     SetPosY(pPosY);
     SetSpeed(pSpeed);
     SetHealth(pHealth);
     SetTexture(pTexture);
+}
+
+PlayerCharacter::PlayerCharacter(float pPosX, float pPosY, float pSpeed, float pHealth)
+{
+    SetPosX(pPosX);
+    SetPosY(pPosY);
+    SetSpeed(pSpeed);
+    SetHealth(pHealth);
 }
 
 void PlayerCharacter::SetHealth(float val)
@@ -32,7 +40,7 @@ void PlayerCharacter::SetHealth(float val)
 void PlayerCharacter::SetTexture(sf::Texture val)
 {
     mTexture = val;
-    mSprite.setTexture(GetTexture());
+    mSprite.setTexture(mTexture);
 }
 
 void PlayerCharacter::Move(MoveDirections var, float TimeStep)
@@ -55,6 +63,5 @@ void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 void PlayerCharacter::UpdateSprite()
 {
     mSprite.setPosition(mPosX, mPosY);
-
 }
 

@@ -798,10 +798,10 @@
 1436958317 source:f:\codeblocks\projects\heist\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437213117 source:c:\users\kieren\documents\github\heist\playercharacter.cpp
+1437216600 source:c:\users\kieren\documents\github\heist\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437213717 c:\users\kieren\documents\github\heist\playercharacter.h
+1437215973 c:\users\kieren\documents\github\heist\playercharacter.h
 	"Entity.h"
 	<SFML/Graphics.hpp>
 
@@ -811,8 +811,8 @@
 1437213117 c:\users\kieren\documents\github\heist\entity.h
 	<cmath>
 
-1437213927 source:c:\users\kieren\documents\github\heist\main.cpp
-	<SFML/Graphics.hpp>
+1437217604 source:c:\users\kieren\documents\github\heist\main.cpp
+	"PlayerCharacter.h"
 
 1437212154 c:\users\kieren\documents\github\sfml-2.3.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
