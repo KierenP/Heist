@@ -25,12 +25,14 @@ public:
     float GetHealth() {return mHealth; }
     sf::Sprite GetSprite() { return mSprite; }
     sf::Texture GetTexture() { return mTexture; }
+    float GetDirection() { return mDirection; }
 
     //Setters
     void SetSpeed(float val) { mSpeed = val; }
     void SetHealth(float val);
     void SetSprite(sf::Sprite val) { mSprite = val; }
     void SetTexture(sf::Texture val);
+    void SetDiretion(float val) { mDirection = val; }
 
     //Member Functions
     void Move(KeyState val, float TimeStep);
@@ -43,6 +45,7 @@ private:
 
     float mSpeed;
     float mHealth;
+    float mDirection;
 };
 
 #endif // PLAYERCHARACTER_H

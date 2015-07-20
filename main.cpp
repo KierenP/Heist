@@ -4,8 +4,10 @@
 void PollEvent(sf::RenderWindow* pTarget);
 void Render(sf::RenderWindow* pTarget);
 
-sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist");
-PlayerCharacter MyPlayer(500, 500, 256, 100);
+sf::ContextSettings settings;
+
+sf::RenderWindow window;
+PlayerCharacter MyPlayer(500, 500, 150, 100);
 
 KeyState KeysPressed;
 sf::Clock GameClock;
@@ -13,6 +15,9 @@ float FrameTime;
 
 int main()
 {
+    settings.antialiasingLevel = 8;
+    window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist", sf::Style::Default, settings);
+
     sf::Texture MyTexture;
 
     if (!MyTexture.loadFromFile("PlaceHolderPlayer.png"))
@@ -43,6 +48,8 @@ void PollEvent(sf::RenderWindow* pTarget)
         KeysPressed.UpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
         KeysPressed.DownPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
     }
+
+    MyPlayer.SetDiretion(MyPlayer.DirectionToPoint(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y));
     MyPlayer.Move(KeysPressed, FrameTime);
     MyPlayer.UpdateSprite();
 }

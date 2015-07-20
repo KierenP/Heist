@@ -41,6 +41,7 @@ void PlayerCharacter::SetTexture(sf::Texture val)
 {
     mTexture = val;
     mSprite.setTexture(mTexture);
+    mSprite.setOrigin(mTexture.getSize().x / 2, mTexture.getSize().y / 2);
 }
 
 void PlayerCharacter::Move(KeyState var, float TimeStep)
@@ -63,5 +64,6 @@ void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 void PlayerCharacter::UpdateSprite()
 {
     mSprite.setPosition(mPosX, mPosY);
+    mSprite.setRotation(mDirection + 90);
 }
 
