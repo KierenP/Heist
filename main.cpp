@@ -4,10 +4,10 @@
 void PollEvent(sf::RenderWindow* pTarget);
 void Render(sf::RenderWindow* pTarget);
 
-sf::RenderWindow window(sf::VideoMode(1920, 1080), "Heist");
+sf::RenderWindow window(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist");
 PlayerCharacter MyPlayer(500, 500, 256, 100);
 
-KeyState ArrowsPressed;
+KeyState KeysPressed;
 sf::Clock GameClock;
 float FrameTime;
 
@@ -22,10 +22,10 @@ int main()
 
     while (window.isOpen())
     {
-        FrameTime = GameClock.restart().asSeconds();
-
         PollEvent(&window);
         Render(&window);
+
+        FrameTime = GameClock.restart().asSeconds();
     }
 }
 
@@ -37,27 +37,13 @@ void PollEvent(sf::RenderWindow* pTarget)
     {
         if (event.type == sf::Event::Closed)
             window.close();
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            ArrowsPressed.LeftPressed = true;
-        else
-            ArrowsPressed.LeftPressed = false;
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            ArrowsPressed.RightPressed = true;
-        else
-            ArrowsPressed.RightPressed = false;
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            ArrowsPressed.UpPressed = true;
-        else
-            ArrowsPressed.UpPressed = false;
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            ArrowsPressed.DownPressed = true;
-        else
-            ArrowsPressed.DownPressed = false;
+        KeysPressed.LeftPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+        KeysPressed.RightPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+        KeysPressed.UpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
+        KeysPressed.DownPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
     }
-    MyPlayer.Move(ArrowsPressed, FrameTime);
+    MyPlayer.Move(KeysPressed, FrameTime);
     MyPlayer.UpdateSprite();
 }
 

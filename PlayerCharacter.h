@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 
-struct KeyState {
+struct  KeyState{
     bool UpPressed;
     bool DownPressed;
     bool LeftPressed;
