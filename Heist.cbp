@@ -46,6 +46,8 @@
 		</Linker>
 		<Unit filename="Entity.cpp" />
 		<Unit filename="Entity.h" />
+		<Unit filename="FunctionLib.cpp" />
+		<Unit filename="FunctionLib.h" />
 		<Unit filename="PlayerCharacter.cpp" />
 		<Unit filename="PlayerCharacter.h" />
 		<Unit filename="main.cpp" />

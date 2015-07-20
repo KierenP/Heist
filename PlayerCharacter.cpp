@@ -45,14 +45,14 @@ void PlayerCharacter::SetTexture(sf::Texture val)
 
 void PlayerCharacter::Move(MoveDirections var, float TimeStep)
 {
-    if (var == Up)
-        SetPosY(mPosX -= mSpeed * TimeStep);
-    if (var == Down)
-        SetPosY(mPosX += mSpeed * TimeStep);
-    if (var == Left)
-        SetPosX(mPosY -= mSpeed * TimeStep);
-    if (var == Right)
-        SetPosX(mPosY += mSpeed * TimeStep);
+    if (var == UP)
+        SetPosY(mPosY -= mSpeed * TimeStep);
+    if (var == DOWN)
+        SetPosY(mPosY += mSpeed * TimeStep);
+    if (var == LEFT)
+        SetPosX(mPosX -= mSpeed * TimeStep);
+    if (var == RIGHT)
+        SetPosX(mPosX += mSpeed * TimeStep);
 }
 
 void PlayerCharacter::Render(sf::RenderWindow* pTarget)

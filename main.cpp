@@ -1,4 +1,5 @@
 #include "PlayerCharacter.h"
+#include "FunctionLib.h"
 
 void PollEvent(sf::RenderWindow* pTarget);
 void Render(sf::RenderWindow* pTarget);
@@ -10,7 +11,7 @@ int main()
 {
     sf::Texture MyTexture;
 
-    if (!MyTexture.loadFromFile("C:\\Users\\Kieren\\Documents\\GitHub\\Heist\\PlaceHolderPlayer.png"));
+    if (!MyTexture.loadFromFile("PlaceHolderPlayer.png"))
         return -1;
 
     MyPlayer.SetTexture(MyTexture);
@@ -30,6 +31,14 @@ void PollEvent(sf::RenderWindow* pTarget)
     {
         if (event.type == sf::Event::Closed)
             window.close();
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+            MyPlayer.Move(LEFT, 1);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+            MyPlayer.Move(RIGHT, 1);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            MyPlayer.Move(UP, 1);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+            MyPlayer.Move(DOWN, 1);
     }
 
     MyPlayer.UpdateSprite();
@@ -38,8 +47,8 @@ void PollEvent(sf::RenderWindow* pTarget)
 void Render(sf::RenderWindow* pTarget)
 {
     window.clear();
-    window.display();
     MyPlayer.Render(pTarget);
+    window.display();
 }
 
 

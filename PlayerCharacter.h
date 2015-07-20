@@ -6,10 +6,10 @@
 
 
 enum MoveDirections {
-    Up,
-    Down,
-    Left,
-    Right
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
 };
 
 class PlayerCharacter : public Entity

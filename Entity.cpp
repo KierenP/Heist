@@ -10,26 +10,6 @@ Entity::~Entity()
 
 }
 
-float Entity::DistanceToPoint(float px, float py)
-{
-    float DiffX = px - mPosX;
-    float DiffY = py - mPosY;
-
-    float DistSqr = DiffX * DiffX + DiffY * DiffY;
-
-    return sqrt(DistSqr);
-}
-
-float Entity::DistanceToPoint(Entity* pEntity)
-{
-    float DiffX = pEntity->GetPosX() - mPosX;
-    float DiffY = pEntity->GetPosY() - mPosY;
-
-    float DistSqr = DiffX * DiffX + DiffY * DiffY;
-
-    return sqrt(DistSqr);
-}
-
 float Entity::DirectionToPoint(float px, float py)
 {
     float DiffX = px - mPosX;
