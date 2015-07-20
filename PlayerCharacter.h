@@ -5,11 +5,11 @@
 #include <SFML/Graphics.hpp>
 
 
-enum MoveDirections {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+struct KeyState {
+    bool UpPressed;
+    bool DownPressed;
+    bool LeftPressed;
+    bool RightPressed;
 };
 
 class PlayerCharacter : public Entity
@@ -33,7 +33,7 @@ public:
     void SetTexture(sf::Texture val);
 
     //Member Functions
-    void Move(MoveDirections val, float TimeStep);
+    void Move(KeyState val, float TimeStep);
     void Render(sf::RenderWindow* pTarget);
     void UpdateSprite();
 

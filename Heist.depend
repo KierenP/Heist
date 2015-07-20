@@ -798,21 +798,22 @@
 1436958317 source:f:\codeblocks\projects\heist\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437216600 source:c:\users\kieren\documents\github\heist\playercharacter.cpp
+1437378224 source:c:\users\kieren\documents\github\heist\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437215973 c:\users\kieren\documents\github\heist\playercharacter.h
+1437378224 c:\users\kieren\documents\github\heist\playercharacter.h
 	"Entity.h"
 	<SFML/Graphics.hpp>
 
-1437213117 source:c:\users\kieren\documents\github\heist\entity.cpp
+1437378224 source:c:\users\kieren\documents\github\heist\entity.cpp
 	"Entity.h"
 
-1437213117 c:\users\kieren\documents\github\heist\entity.h
+1437358621 c:\users\kieren\documents\github\heist\entity.h
 	<cmath>
 
-1437217604 source:c:\users\kieren\documents\github\heist\main.cpp
+1437378231 source:c:\users\kieren\documents\github\heist\main.cpp
 	"PlayerCharacter.h"
+	"FunctionLib.h"
 
 1437212154 c:\users\kieren\documents\github\sfml-2.3.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1591,5 +1592,11 @@
 	"FunctionLib.h"
 
 1437359133 e:\heist-develop\functionlib.h
+	"Entity.h"
+
+1437358956 source:c:\users\kieren\documents\github\heist\functionlib.cpp
+	"FunctionLib.h"
+
+1437359133 c:\users\kieren\documents\github\heist\functionlib.h
 	"Entity.h"
 

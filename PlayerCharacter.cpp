@@ -43,15 +43,15 @@ void PlayerCharacter::SetTexture(sf::Texture val)
     mSprite.setTexture(mTexture);
 }
 
-void PlayerCharacter::Move(MoveDirections var, float TimeStep)
+void PlayerCharacter::Move(KeyState var, float TimeStep)
 {
-    if (var == UP)
+    if (var.UpPressed)
         SetPosY(mPosY -= mSpeed * TimeStep);
-    if (var == DOWN)
+    if (var.DownPressed)
         SetPosY(mPosY += mSpeed * TimeStep);
-    if (var == LEFT)
+    if (var.LeftPressed)
         SetPosX(mPosX -= mSpeed * TimeStep);
-    if (var == RIGHT)
+    if (var.RightPressed)
         SetPosX(mPosX += mSpeed * TimeStep);
 }
 
