@@ -1,0 +1,28 @@
+Stage 0:
+ - Correctly link SFML
+Stage 1:
+ - Display the player
+ - Player Movement and aiming
+Stage 2:
+ - Display Floors, Walls
+ - Collisions
+ - Scrolling
+Stage 3: 
+ - Shooting
+Stage 4:
+ - Basic AI's
+Stage 5:
+ - Basic GUI
+Stage 6: 
+ - Objectives/ Core gameplay 
+Stage 7:
+ - Improved AI's
+Stage 8:
+ - Navigation (Menus Screens)
+Stage 9:
+ - Improved GUI (Minimap)
+Stage 10:
+ - Extra secondary gameplay elements
+
+
+### THIS IS A PRELIMINARY DRAFT ###
