@@ -31,7 +31,7 @@ void PlayerCharacter::SetHealth(float val)
 {
     mHealth = val;
 
-    if (mHealth < 0)
+    if (mHealth < 0)    //Health should not be less than zero
     {
         mHealth = 0;
     }
@@ -41,7 +41,7 @@ void PlayerCharacter::SetTexture(sf::Texture val)
 {
     mTexture = val;
     mSprite.setTexture(mTexture);
-    mSprite.setOrigin(mTexture.getSize().x / 2, mTexture.getSize().y / 2);
+    mSprite.setOrigin(mTexture.getSize().x / 2, mTexture.getSize().y / 2);  //Set the origin to be the center of the texture so it rotates around the center
 }
 
 void PlayerCharacter::Move(KeyState var, float TimeStep)
@@ -59,6 +59,7 @@ void PlayerCharacter::Move(KeyState var, float TimeStep)
 void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 {
     pTarget->draw(mSprite);
+    RenderProjectiles(pTarget);
 }
 
 void PlayerCharacter::UpdateSprite()
@@ -67,3 +68,24 @@ void PlayerCharacter::UpdateSprite()
     mSprite.setRotation(mDirection + 90);
 }
 
+void PlayerCharacter::UpdateProjectiles(float TimeStep)
+{
+    for (unsigned int i = 0; i < mProjectiles.size(); i++)
+    {
+        mProjectiles[i].Update(TimeStep);
+    }
+}
+
+void PlayerCharacter::RenderProjectiles(sf::RenderWindow* pTarget)
+{
+    for (unsigned int i = 0; i < mProjectiles.size(); i++)
+    {
+        mProjectiles[i].Render(pTarget);
+    }
+}
+
+void PlayerCharacter::Update(float TimeStep)
+{
+    UpdateSprite();
+    UpdateProjectiles(TimeStep);
+}

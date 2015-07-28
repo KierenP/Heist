@@ -51,7 +51,7 @@ void PollEvent(sf::RenderWindow* pTarget)
 
     MyPlayer.SetDiretion(MyPlayer.DirectionToPoint(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y));
     MyPlayer.Move(KeysPressed, FrameTime);
-    MyPlayer.UpdateSprite();
+    MyPlayer.Update(FrameTime);
 }
 
 void Render(sf::RenderWindow* pTarget)
