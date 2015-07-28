@@ -50,6 +50,10 @@
 		<Unit filename="FunctionLib.h" />
 		<Unit filename="PlayerCharacter.cpp" />
 		<Unit filename="PlayerCharacter.h" />
+		<Unit filename="Projectile.cpp" />
+		<Unit filename="Projectile.h" />
+		<Unit filename="WeaponStats.cpp" />
+		<Unit filename="WeaponStats.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
