@@ -42,6 +42,7 @@ void PlayerCharacter::SetTexture(sf::Texture val)
     mTexture = val;
     mSprite.setTexture(mTexture);
     mSprite.setOrigin(mTexture.getSize().x / 2, mTexture.getSize().y / 2);  //Set the origin to be the center of the texture so it rotates around the center
+    //mSprite.setOrigin(0, 0);
 }
 
 void PlayerCharacter::Move(KeyState var, float TimeStep)
@@ -88,4 +89,11 @@ void PlayerCharacter::Update(float TimeStep)
 {
     UpdateSprite();
     UpdateProjectiles(TimeStep);
+}
+
+void PlayerCharacter::GenerateProjectile()
+{
+    Projectile Temp(mPosX, mPosY, mDirection, mWeapon.mBulletSpeed, mWeapon.mDamage, mWeapon.mBulletSprite);
+
+    mProjectiles.push_back(Temp);
 }

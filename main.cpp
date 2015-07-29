@@ -24,6 +24,7 @@ int main()
         return -1;
 
     MyPlayer.SetTexture(MyTexture);
+    MyPlayer.SetWeapon(GetWeaponStat(RifleWeapon));
 
     while (window.isOpen())
     {
@@ -49,7 +50,8 @@ void PollEvent(sf::RenderWindow* pTarget)
         KeysPressed.DownPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
     }
 
-    MyPlayer.SetDiretion(MyPlayer.DirectionToPoint(sf::Mouse::getPosition().x, sf::Mouse::getPosition().y));
+    MyPlayer.SetDiretion(ToDegrees(DirectionToPoint(MyPlayer.GetPosX(), MyPlayer.GetPosY(), sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)));
+    MyPlayer.GenerateProjectile();
     MyPlayer.Move(KeysPressed, FrameTime);
     MyPlayer.Update(FrameTime);
 }

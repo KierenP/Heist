@@ -1600,43 +1600,44 @@
 1437359133 c:\users\kieren\documents\github\heist\functionlib.h
 	"Entity.h"
 
-1437962172 source:e:\heist-master\entity.cpp
+1438130279 source:e:\heist-master\entity.cpp
 	"Entity.h"
 
-1438047973 e:\heist-master\entity.h
+1438130278 e:\heist-master\entity.h
 	<cmath>
 
-1437962173 source:e:\heist-master\functionlib.cpp
+1438130595 source:e:\heist-master\functionlib.cpp
 	"FunctionLib.h"
 
-1437962173 e:\heist-master\functionlib.h
+1438130279 e:\heist-master\functionlib.h
 	"Entity.h"
 
-1438047515 source:e:\heist-master\main.cpp
+1438131008 source:e:\heist-master\main.cpp
 	"PlayerCharacter.h"
 	"FunctionLib.h"
 
-1438047403 e:\heist-master\playercharacter.h
+1438129098 e:\heist-master\playercharacter.h
 	"Entity.h"
 	"WeaponStats.h"
 	"Projectile.h"
 	<SFML/Graphics.hpp>
 	<vector>
 
-1438047553 source:e:\heist-master\playercharacter.cpp
+1438130832 source:e:\heist-master\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437964543 source:e:\heist-master\projectile.cpp
+1438129911 source:e:\heist-master\projectile.cpp
 	"Projectile.h"
 
-1437964536 e:\heist-master\projectile.h
+1438129777 e:\heist-master\projectile.h
 	"Entity.h"
+	"FunctionLib.h"
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1438045710 source:e:\heist-master\weaponstats.cpp
+1438129984 source:e:\heist-master\weaponstats.cpp
 	"WeaponStats.h"
 
-1438046114 e:\heist-master\weaponstats.h
+1438129286 e:\heist-master\weaponstats.h
 	<SFML/Graphics.hpp>
 

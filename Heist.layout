@@ -3,57 +3,57 @@
 	<ActiveTarget name="Debug" />
 	<File name="FunctionLib.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="225" topLine="0" />
+			<Cursor1 position="493" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="PlayerCharacter.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1051" topLine="42" />
+			<Cursor1 position="860" topLine="50" />
 		</Cursor>
 	</File>
 	<File name="FunctionLib.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="457" topLine="0" />
+			<Cursor1 position="841" topLine="8" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1485" topLine="1" />
+			<Cursor1 position="1474" topLine="27" />
 		</Cursor>
 	</File>
 	<File name="Projectile.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="706" topLine="0" />
+			<Cursor1 position="674" topLine="1" />
 		</Cursor>
 	</File>
 	<File name="Projectile.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="862" topLine="3" />
+			<Cursor1 position="109" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="WeaponStats.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="349" topLine="0" />
+			<Cursor1 position="304" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="PlayerCharacter.h" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="PlayerCharacter.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="576" topLine="23" />
+			<Cursor1 position="1932" topLine="24" />
 		</Cursor>
 	</File>
 	<File name="Entity.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="19" topLine="0" />
+			<Cursor1 position="68" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Entity.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="485" topLine="0" />
+			<Cursor1 position="358" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="WeaponStats.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="777" topLine="0" />
+			<Cursor1 position="1099" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

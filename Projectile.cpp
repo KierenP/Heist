@@ -14,17 +14,19 @@ Projectile::Projectile(float px, float py, float pDirection, float pVelocity, fl
 {
     CalculateVelocities(pDirection, pVelocity);
 
-    mDamage = pDamage;
-    mSprite = pSprite;
+    SetDamage(pDamage);
+    SetSprite(pSprite);
 
-    mPosX = px;
-    mPosY = py;
+    SetPosX(px);
+    SetPosY(py);
 }
 
 void Projectile::Update(float TimeStep)
 {
     mPosX += VelX * TimeStep;
     mPosY += VelY * TimeStep;
+
+    UpdateSprite();
 }
 
 void Projectile::UpdateSprite()
@@ -34,6 +36,6 @@ void Projectile::UpdateSprite()
 
 void Projectile::CalculateVelocities(float pDirection, float pVelocity)
 {
-    VelX = cos(pDirection) * pVelocity;
-    VelY = -sin(pDirection) * pVelocity;
+    VelX = ToDegrees(cos(ToRadians(pDirection))) * pVelocity;
+    VelY = ToDegrees(sin(ToRadians(pDirection))) * pVelocity;
 }

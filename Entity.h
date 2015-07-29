@@ -18,10 +18,6 @@ public:
     void SetPosX(float val) { mPosX = val; }
     void SetPosY(float val) { mPosY = val; }
 
-    //Member Functions
-    float DirectionToPoint(float px, float py);
-    float DirectionToPoint(Entity* pEntity);
-
 protected:
     float mPosX;
     float mPosY;

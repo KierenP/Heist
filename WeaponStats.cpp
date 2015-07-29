@@ -1,6 +1,6 @@
 #include "WeaponStats.h"
 
-void GetWeaponStat(WeaponTypes WeaponID)
+WeaponStats GetWeaponStat(WeaponTypes WeaponID)
 {
     WeaponStats WeaponIDStats;
     sf::Sprite WeaponIDSprite;
@@ -10,7 +10,7 @@ void GetWeaponStat(WeaponTypes WeaponID)
     {
     case RifleWeapon:
         {
-            WeaponIDTexture.loadFromFile("<Insert file name here>");
+            WeaponIDTexture.loadFromFile("PlaceHolderPlayer.png");
             WeaponIDStats.mBulletSpeed = 500;
             WeaponIDStats.mDamage = 10;
             WeaponIDStats.mFireRate = 0.2;
@@ -32,6 +32,9 @@ void GetWeaponStat(WeaponTypes WeaponID)
     }
 
     WeaponIDSprite.setTexture(WeaponIDTexture);
+    WeaponIDSprite.setOrigin(WeaponIDTexture.getSize().x / 2, WeaponIDTexture.getSize().y / 2);
     WeaponIDStats.mBulletSprite = WeaponIDSprite;
+
+    return WeaponIDStats;
 }
 

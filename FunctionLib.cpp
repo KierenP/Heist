@@ -30,3 +30,19 @@ float ToRadians(float degrees)
     return degrees * (_PI / 180);
 }
 
+float DirectionToPoint(float ax, float ay, float bx, float by)
+{
+    float DiffX = bx - ax;
+    float DiffY = by - ay;
+
+    return atan2(DiffY, DiffX);
+}
+
+float DirectionToPoint(Entity* a, Entity* b)
+{
+    float DiffX = b->GetPosX() - a->GetPosX();
+    float DiffY = b->GetPosY() - a->GetPosY();
+
+    return atan2(DiffY, DiffX);
+}
+

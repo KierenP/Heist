@@ -18,7 +18,7 @@ enum WeaponTypes
     ShotGunWeapon,
 };
 
-void GetWeaponStat(WeaponTypes WeaponID);
+WeaponStats GetWeaponStat(WeaponTypes WeaponID);
 
 
 #endif // WEAPONSTATS_H_INCLUDED

@@ -45,6 +45,7 @@ public:
     void Move(KeyState val, float TimeStep);    //Move the player in the pressed directions
     void Render(sf::RenderWindow* pTarget);     //Draw the player sprite and the projectiles
     void Update(float TimeStep);                //Update the projectiles positions and the players sprite
+    void GenerateProjectile();
 
 private:
     void UpdateProjectiles(float TimeStep);

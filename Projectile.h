@@ -2,6 +2,7 @@
 #define PROJECTILE_H_INCLUDED
 
 #include "Entity.h"
+#include "FunctionLib.h"
 #include <cmath>
 #include <SFML/Graphics.hpp>
 
