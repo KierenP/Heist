@@ -8,27 +8,24 @@ WeaponStats GetWeaponStat(WeaponTypes WeaponID)
 
     switch (WeaponID)
     {
-    case RifleWeapon:
-        {
+        case RifleWeapon:
             WeaponIDTexture.loadFromFile("PlaceHolderPlayer.png");
-            WeaponIDStats.mBulletSpeed = 500;
+            WeaponIDStats.mBulletSpeed = 10;
             WeaponIDStats.mDamage = 10;
             WeaponIDStats.mFireRate = 0.2;
-        }
-    case SMGWeapon:
-        {
+            break;
+        case SMGWeapon:
             WeaponIDTexture.loadFromFile("<Insert file name here>");
-            WeaponIDStats.mBulletSpeed = 500;
+            WeaponIDStats.mBulletSpeed = 20;
             WeaponIDStats.mDamage = 7;
-            WeaponIDStats.mFireRate = 0.1;
-        }
-    case ShotGunWeapon:
-        {
+            WeaponIDStats.mFireRate = 0.05;
+            break;
+        case ShotGunWeapon:
             WeaponIDTexture.loadFromFile("<Insert file name here>");
-            WeaponIDStats.mBulletSpeed = 500;
+            WeaponIDStats.mBulletSpeed = 20;
             WeaponIDStats.mDamage = 20;
             WeaponIDStats.mFireRate = 2;
-        }
+            break;
     }
 
     WeaponIDSprite.setTexture(WeaponIDTexture);

@@ -24,7 +24,7 @@ int main()
         return -1;
 
     MyPlayer.SetTexture(MyTexture);
-    MyPlayer.SetWeapon(GetWeaponStat(RifleWeapon));
+    MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
 
     while (window.isOpen())
     {
@@ -44,6 +44,22 @@ void PollEvent(sf::RenderWindow* pTarget)
         if (event.type == sf::Event::Closed)
             window.close();
 
+        if (event.type == sf::Event::MouseButtonPressed)
+        {
+            if (event.mouseButton.button == sf::Mouse::Left)
+            {
+                KeysPressed.LMBPressed = true;
+            }
+        }
+
+        if (event.type == sf::Event::MouseButtonReleased)
+        {
+            if (event.mouseButton.button == sf::Mouse::Left)
+            {
+                KeysPressed.LMBPressed = false;
+            }
+        }
+
         KeysPressed.LeftPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
         KeysPressed.RightPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
         KeysPressed.UpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
@@ -51,9 +67,7 @@ void PollEvent(sf::RenderWindow* pTarget)
     }
 
     MyPlayer.SetDiretion(ToDegrees(DirectionToPoint(MyPlayer.GetPosX(), MyPlayer.GetPosY(), sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)));
-    MyPlayer.GenerateProjectile();
-    MyPlayer.Move(KeysPressed, FrameTime);
-    MyPlayer.Update(FrameTime);
+    MyPlayer.Update(FrameTime, KeysPressed);
 }
 
 void Render(sf::RenderWindow* pTarget)

@@ -16,7 +16,7 @@ Projectile::Projectile(float px, float py, float pDirection, float pVelocity, fl
 
     SetDamage(pDamage);
     SetSprite(pSprite);
-
+    SetDirection(pDirection);
     SetPosX(px);
     SetPosY(py);
 }
@@ -32,6 +32,7 @@ void Projectile::Update(float TimeStep)
 void Projectile::UpdateSprite()
 {
     mSprite.setPosition(mPosX, mPosY);
+    mSprite.setRotation(mDirection);
 }
 
 void Projectile::CalculateVelocities(float pDirection, float pVelocity)

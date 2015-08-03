@@ -19,12 +19,14 @@ public:
     float GetVelY() { return VelY; }
     float GetDamage() { return mDamage; }
     sf::Sprite GetSprite() { return mSprite; }
+    float GetDirection() { return mDirection; }
 
     //setters
     void SetVelX(float pVelX) { VelX = pVelX; }
     void SetVelY(float pVelY) { VelY = pVelY; }
     void SetDamage(float pDamage) { mDamage = pDamage; }
     void SetSprite(sf::Sprite pSprite) { mSprite = pSprite; }
+    void SetDirection(float pDirection) { mDirection = pDirection; }
 
     //public member functions
     void Render(sf::RenderWindow* pTarget) {pTarget->draw(mSprite);}                //draw mSprite to screen
@@ -36,6 +38,7 @@ private:
     void UpdateSprite();
 
     //private member variables
+    float mDirection;
     float VelX, VelY;
     float mDamage;
     sf::Sprite mSprite;

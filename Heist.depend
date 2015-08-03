@@ -1193,19 +1193,22 @@
 	<string>
 	<vector>
 
-1437358622 source:e:\heist-develop\entity.cpp
+1438566865 source:e:\heist-develop\entity.cpp
 	"Entity.h"
 
-1437358621 e:\heist-develop\entity.h
+1438566865 e:\heist-develop\entity.h
 	<cmath>
 
-1437359734 source:e:\heist-develop\main.cpp
+1438569406 source:e:\heist-develop\main.cpp
 	"PlayerCharacter.h"
 	"FunctionLib.h"
 
-1437359670 e:\heist-develop\playercharacter.h
+1438569004 e:\heist-develop\playercharacter.h
 	"Entity.h"
+	"WeaponStats.h"
+	"Projectile.h"
 	<SFML/Graphics.hpp>
+	<vector>
 
 1437212154 e:\sfml-2.3.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1585,13 +1588,13 @@
 	<string>
 	<vector>
 
-1437357254 source:e:\heist-develop\playercharacter.cpp
+1438569003 source:e:\heist-develop\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437358956 source:e:\heist-develop\functionlib.cpp
+1438566866 source:e:\heist-develop\functionlib.cpp
 	"FunctionLib.h"
 
-1437359133 e:\heist-develop\functionlib.h
+1438566866 e:\heist-develop\functionlib.h
 	"Entity.h"
 
 1437358956 source:c:\users\kieren\documents\github\heist\functionlib.cpp
@@ -1640,4 +1643,60 @@
 
 1438129286 e:\heist-master\weaponstats.h
 	<SFML/Graphics.hpp>
+
+1438566865 source:e:\temp\heist-develop\entity.cpp
+	"Entity.h"
+
+1438566865 e:\temp\heist-develop\entity.h
+	<cmath>
+
+1438566866 source:e:\temp\heist-develop\functionlib.cpp
+	"FunctionLib.h"
+
+1438566866 e:\temp\heist-develop\functionlib.h
+	"Entity.h"
+
+1438566870 source:e:\temp\heist-develop\main.cpp
+	"PlayerCharacter.h"
+	"FunctionLib.h"
+
+1438566868 e:\temp\heist-develop\playercharacter.h
+	"Entity.h"
+	"WeaponStats.h"
+	"Projectile.h"
+	<SFML/Graphics.hpp>
+	<vector>
+
+1438566869 e:\temp\heist-develop\weaponstats.h
+	<SFML/Graphics.hpp>
+
+1438566869 e:\temp\heist-develop\projectile.h
+	"Entity.h"
+	"FunctionLib.h"
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1438566868 source:e:\temp\heist-develop\playercharacter.cpp
+	"PlayerCharacter.h"
+
+1438566869 source:e:\temp\heist-develop\projectile.cpp
+	"Projectile.h"
+
+1438566869 source:e:\temp\heist-develop\weaponstats.cpp
+	"WeaponStats.h"
+
+1438569423 e:\heist-develop\weaponstats.h
+	<SFML/Graphics.hpp>
+
+1438567677 e:\heist-develop\projectile.h
+	"Entity.h"
+	"FunctionLib.h"
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1438567705 source:e:\heist-develop\projectile.cpp
+	"Projectile.h"
+
+1438569408 source:e:\heist-develop\weaponstats.cpp
+	"WeaponStats.h"
 

@@ -85,9 +85,17 @@ void PlayerCharacter::RenderProjectiles(sf::RenderWindow* pTarget)
     }
 }
 
-void PlayerCharacter::Update(float TimeStep)
+void PlayerCharacter::Update(float TimeStep, KeyState val)
 {
+    Move(val, TimeStep);
     UpdateSprite();
+
+    if (val.LMBPressed && mWeaponClock.getElapsedTime().asSeconds() > mWeapon.mFireRate)
+    {
+        GenerateProjectile();
+        mWeaponClock.restart();
+    }
+
     UpdateProjectiles(TimeStep);
 }
 

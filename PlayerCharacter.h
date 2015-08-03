@@ -12,6 +12,7 @@ struct  KeyState{
     bool DownPressed;
     bool LeftPressed;
     bool RightPressed;
+    bool LMBPressed;
 };
 
 class PlayerCharacter : public Entity
@@ -42,15 +43,15 @@ public:
     void SetProjectiles(std::vector<Projectile>& pProjectiles) { mProjectiles = pProjectiles; }
 
     //Member Functions
-    void Move(KeyState val, float TimeStep);    //Move the player in the pressed directions
     void Render(sf::RenderWindow* pTarget);     //Draw the player sprite and the projectiles
-    void Update(float TimeStep);                //Update the projectiles positions and the players sprite
+    void Update(float TimeStep, KeyState val);  //Update the projectiles positions and the players sprite
     void GenerateProjectile();
 
 private:
     void UpdateProjectiles(float TimeStep);
     void RenderProjectiles(sf::RenderWindow* pTarget);
     void UpdateSprite();
+    void Move(KeyState val, float TimeStep);    //Move the player in the pressed directions
 
     sf::Sprite mSprite;
     sf::Texture mTexture;
@@ -59,6 +60,7 @@ private:
     float mDirection;
     WeaponStats mWeapon;
     std::vector<Projectile> mProjectiles;
+    sf::Clock mWeaponClock;
 };
 
 #endif // PLAYERCHARACTER_H
