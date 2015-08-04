@@ -3,16 +3,16 @@
 WeaponStats GetWeaponStat(WeaponTypes WeaponID)
 {
     WeaponStats WeaponIDStats;
-    sf::Sprite WeaponIDSprite;
     sf::Texture WeaponIDTexture;
 
     switch (WeaponID)
     {
         case RifleWeapon:
-            WeaponIDTexture.loadFromFile("PlaceHolderPlayer.png");
-            WeaponIDStats.mBulletSpeed = 10;
+            WeaponIDTexture.loadFromFile("Bullet.png");
+            WeaponIDStats.mBulletSpeed = 25;
             WeaponIDStats.mDamage = 10;
-            WeaponIDStats.mFireRate = 0.2;
+            WeaponIDStats.mFireRate = 0.1;
+            WeaponIDStats.mBulletSpred = 5;
             break;
         case SMGWeapon:
             WeaponIDTexture.loadFromFile("<Insert file name here>");
@@ -26,11 +26,11 @@ WeaponStats GetWeaponStat(WeaponTypes WeaponID)
             WeaponIDStats.mDamage = 20;
             WeaponIDStats.mFireRate = 2;
             break;
+        default:
+            break;
     }
 
-    WeaponIDSprite.setTexture(WeaponIDTexture);
-    WeaponIDSprite.setOrigin(WeaponIDTexture.getSize().x / 2, WeaponIDTexture.getSize().y / 2);
-    WeaponIDStats.mBulletSprite = WeaponIDSprite;
+    WeaponIDStats.mBulletTexture = WeaponIDTexture;
 
     return WeaponIDStats;
 }

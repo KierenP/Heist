@@ -8,7 +8,8 @@ struct WeaponStats
     float mDamage;
     float mBulletSpeed;
     float mFireRate;
-    sf::Sprite mBulletSprite;
+    float mBulletSpred;
+    sf::Texture mBulletTexture;
 };
 
 enum WeaponTypes

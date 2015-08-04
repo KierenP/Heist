@@ -101,7 +101,9 @@ void PlayerCharacter::Update(float TimeStep, KeyState val)
 
 void PlayerCharacter::GenerateProjectile()
 {
-    Projectile Temp(mPosX, mPosY, mDirection, mWeapon.mBulletSpeed, mWeapon.mDamage, mWeapon.mBulletSprite);
+    float RandDir = mDirection + (-1 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(2)))) * mWeapon.mBulletSpred;         //Random number between 0 and 1 * Spread
+
+    Projectile Temp(mPosX, mPosY, RandDir, mWeapon.mBulletSpeed, mWeapon.mDamage, mWeapon.mBulletTexture);
 
     mProjectiles.push_back(Temp);
 }

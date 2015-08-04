@@ -10,12 +10,12 @@ Projectile::~Projectile()
 
 }
 
-Projectile::Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Sprite pSprite)
+Projectile::Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Texture mSpriteTexture)
 {
     CalculateVelocities(pDirection, pVelocity);
 
     SetDamage(pDamage);
-    SetSprite(pSprite);
+    SetTexture(mSpriteTexture);
     SetDirection(pDirection);
     SetPosX(px);
     SetPosY(py);
@@ -29,10 +29,23 @@ void Projectile::Update(float TimeStep)
     UpdateSprite();
 }
 
+void Projectile::SetDirection(float pDirection)
+{
+    mDirection = pDirection;
+    mSprite.setRotation(mDirection + 90);
+}
+
+void Projectile::SetTexture(sf::Texture pTexture)
+{
+    mSpriteTexture = pTexture;
+    mSprite.setTexture(mSpriteTexture);
+    mSprite.setOrigin(mSpriteTexture.getSize().x / 2, mSpriteTexture.getSize().y / 2);
+}
+
 void Projectile::UpdateSprite()
 {
+    mSprite.setTexture(mSpriteTexture);
     mSprite.setPosition(mPosX, mPosY);
-    mSprite.setRotation(mDirection);
 }
 
 void Projectile::CalculateVelocities(float pDirection, float pVelocity)

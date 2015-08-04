@@ -11,7 +11,7 @@ class Projectile : public Entity
 public:
     //Construtor and Destructor
     Projectile();
-    Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Sprite pSprite);    //You can give it a direction and a speed
+    Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Texture mSpriteTexture);    //You can give it a direction and a speed
     ~Projectile();
 
     //getters
@@ -26,21 +26,23 @@ public:
     void SetVelY(float pVelY) { VelY = pVelY; }
     void SetDamage(float pDamage) { mDamage = pDamage; }
     void SetSprite(sf::Sprite pSprite) { mSprite = pSprite; }
-    void SetDirection(float pDirection) { mDirection = pDirection; }
+    void SetDirection(float pDirection);
+    void SetTexture(sf::Texture pTexture);
 
     //public member functions
     void Render(sf::RenderWindow* pTarget) {pTarget->draw(mSprite);}                //draw mSprite to screen
     void Update(float TimeStep);
-    void CalculateVelocities(float pDirection, float pVelocity);                    //Based on a direction and a velocity calculate the velocity x and y
 
 private:
     //private member functions
     void UpdateSprite();
+    void CalculateVelocities(float pDirection, float pVelocity);                    //Based on a direction and a velocity calculate the velocity x and y
 
     //private member variables
     float mDirection;
     float VelX, VelY;
     float mDamage;
+    sf::Texture mSpriteTexture;
     sf::Sprite mSprite;
 };
 
