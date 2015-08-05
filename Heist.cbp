@@ -52,6 +52,7 @@
 		<Unit filename="PlayerCharacter.h" />
 		<Unit filename="Projectile.cpp" />
 		<Unit filename="Projectile.h" />
+		<Unit filename="TileEngine.cpp" />
 		<Unit filename="TileEngine.h" />
 		<Unit filename="WeaponStats.cpp" />
 		<Unit filename="WeaponStats.h" />

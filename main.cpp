@@ -24,7 +24,7 @@ int main()
         return -1;
 
     MyPlayer.SetTexture(MyTexture);
-    MyPlayer.SetWeapon(GetWeaponStat(RifleWeapon));
+    MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
 
     while (window.isOpen())
     {
