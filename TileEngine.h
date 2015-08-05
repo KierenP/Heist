@@ -14,9 +14,9 @@ class TileEngine
 {
 public:
     TileEngine();                               //Defult ctor
-    TileEngine(std::string pFileLocation);           //Generate from a file
-    TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec);   //Generate from paramiters
-    TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles);    //Generate from already generated Tile vector
+    TileEngine(std::string pFileLocation);      //Generate from a file
+    TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec);   //Generate from paramiters
+    TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles);    //Generate from already generated Tile vector
     ~TileEngine();
 
     //Getters
@@ -35,16 +35,18 @@ public:
 
     //Public member functions
     void LoadFromFile(std::string pFileLocation);
-    void LoadFromParam(float pPosX, float pPosY, float pTileWidth, float pTileHeight, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec);
-    void LoadFromTiles(float pPosX, float pPosY, float pTileWidth, float pTileHeight, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles);
+    void LoadFromParam(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec);
+    void LoadFromTiles(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles);
     void Render(sf::RenderWindow* pTarget);
-    void UpdateTiles();
 
 private:
+    void UpdateTileSpritePos();
+
     //Private member variables
     float mPosX, mPosY;                 //Position x and y
     float mTileWidth, mTileHeight;      //Tile width and height in pixles
-    float mMapSizeX, mMapSizeY;         //Map size, in tiles
+    unsigned int mMapSizeX, mMapSizeY;  //Map size, in tiles
+    sf::Texture mTileSet;
     std::vector<std::vector<Tile> > mTiles;
 };
 
