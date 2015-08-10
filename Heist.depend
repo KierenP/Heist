@@ -1199,9 +1199,13 @@
 1438566865 e:\heist-develop\entity.h
 	<cmath>
 
-1438733792 source:e:\heist-develop\main.cpp
+1439174000 source:e:\heist-develop\main.cpp
 	"PlayerCharacter.h"
 	"FunctionLib.h"
+	"TileEngine.h"
+	"LevelEntityManager.h"
+	<stdlib.h>
+	<time.h>
 
 1438569004 e:\heist-develop\playercharacter.h
 	"Entity.h"
@@ -2122,17 +2126,25 @@
 1438734107 source:f:\heist-develop\weaponstats.cpp
 	"WeaponStats.h"
 
-1438735836 source:e:\heist-develop\tileengine.cpp
+1438773967 source:e:\heist-develop\tileengine.cpp
 	"TileEngine.h"
 
-1438735788 e:\heist-develop\tileengine.h
+1438763059 e:\heist-develop\tileengine.h
 	"Entity.h"
 	"SFML/Graphics.hpp"
 
-1438763061 source:f:\heist-develop\tileengine.cpp
+1438763553 source:f:\heist-develop\tileengine.cpp
 	"TileEngine.h"
 
 1438763059 f:\heist-develop\tileengine.h
 	"Entity.h"
 	"SFML/Graphics.hpp"
+
+1439174225 source:e:\heist-develop\levelentitymanager.cpp
+	"LevelEntityManager.h"
+
+1439173468 e:\heist-develop\levelentitymanager.h
+	"PlayerCharacter.h"
+	"TileEngine.h"
+	<SFML/Graphics.hpp>
 

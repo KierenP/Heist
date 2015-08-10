@@ -1,23 +1,23 @@
 #include "PlayerCharacter.h"
 #include "FunctionLib.h"
 #include "TileEngine.h"
+#include "LevelEntityManager.h"
 
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
-void PollEvent(sf::RenderWindow* pTarget);
-void Render(sf::RenderWindow* pTarget);
-void UpdatePlayer();
+void PollEvent();
+void Render();
+void Update();
+void GenerateTestLevel();
 
 sf::ContextSettings settings;
 
 sf::RenderWindow window;
-PlayerCharacter MyPlayer(500, 500, 150, 100);
-TileEngine MyEngine;
+
+LevelEntityManager TestLevel;
 
 KeyState KeysPressed;
-sf::Clock GameClock;
-float FrameTime;
 
 int main()
 {
@@ -26,69 +26,69 @@ int main()
     settings.antialiasingLevel = 8;
     window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist", sf::Style::Default, settings);
 
-    sf::Texture MyTexture;
+    GenerateTestLevel();
 
-    if (!MyTexture.loadFromFile("PlaceHolderPlayer.png"))
-        return -1;
+    PlayerCharacter MyPlayer(500, 500, 150, 100);
+    TileEngine MyEngine;
+    sf::Texture MyTexture;
+    sf::Texture TileSet;
+
+    MyTexture.loadFromFile("PlaceHolderPlayer.png");
+    TileSet.loadFromFile("TileSet.png");
 
     MyPlayer.SetTexture(MyTexture);
     MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
 
-    sf::Texture TileSet;
-    TileSet.loadFromFile("TileSet.png");
-
     std::vector<std::vector<int> > TileIDVec;
     std::vector<std::vector<bool> > SolidStateVec;
 
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 100; i++)
     {
-        std::vector<bool> Row;
+        std::vector<bool> boolRow;
+        std::vector<int> intRow;
 
-        for (int j = 0; j < 50; j++)
+        for (int j = 0; j < 100; j++)
         {
-            Row.push_back(rand() % 2);
+            boolRow.push_back(rand() % 2);
+            intRow.push_back(rand() % 1 + 1);
         }
 
-        SolidStateVec.push_back(Row);
+        SolidStateVec.push_back(boolRow);
+        TileIDVec.push_back(intRow);
     }
 
-    for (int i = 0; i < 50; i++)
-    {
-        std::vector<int> Row;
+    MyEngine.LoadFromParam(0, 0, 32, 32, 100, 100, TileSet, TileIDVec, SolidStateVec);
 
-        for (int j = 0; j < 50; j++)
-        {
-            Row.push_back(rand() % 32);
-        }
-
-        TileIDVec.push_back(Row);
-    }
-
-    MyEngine.LoadFromParam(0, 0, 64, 64, 50, 50, TileSet, TileIDVec, SolidStateVec);
+    TestLevel.SetPlayer(MyPlayer);
+    TestLevel.SetTileEngine(MyEngine);
+    TestLevel.SetTarget(&window);
 
     while (window.isOpen())
     {
-        PollEvent(&window);
-        Render(&window);
-
-        FrameTime = GameClock.restart().asSeconds();
+        PollEvent();
+        Render();
     }
 }
 
-void PollEvent(sf::RenderWindow* pTarget)
+void GenerateTestLevel()
+{
+
+}
+
+void PollEvent()
 {
     sf::Event event;
 
-    while (pTarget->pollEvent(event))
+    while (window.pollEvent(event))
     {
         if (event.type == sf::Event::Closed)
             window.close();
     }
 
-    UpdatePlayer();
+    Update();
 }
 
-void UpdatePlayer()
+void Update()
 {
     KeysPressed.LMBPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
     KeysPressed.LeftPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
@@ -96,15 +96,13 @@ void UpdatePlayer()
     KeysPressed.UpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
     KeysPressed.DownPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
 
-    MyPlayer.SetDiretion(ToDegrees(DirectionToPoint(MyPlayer.GetPosX(), MyPlayer.GetPosY(), sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)));
-    MyPlayer.Update(FrameTime, KeysPressed);
+    TestLevel.Update(KeysPressed);
 }
 
-void Render(sf::RenderWindow* pTarget)
+void Render()
 {
     window.clear();
-    MyEngine.Render(pTarget);
-    MyPlayer.Render(pTarget);
+    TestLevel.Render();
     window.display();
 }
 

@@ -14,6 +14,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="../Heist-Develop" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics-d" />
@@ -29,6 +30,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="../Heist-Develop" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-graphics" />
@@ -48,6 +50,8 @@
 		<Unit filename="Entity.h" />
 		<Unit filename="FunctionLib.cpp" />
 		<Unit filename="FunctionLib.h" />
+		<Unit filename="LevelEntityManager.cpp" />
+		<Unit filename="LevelEntityManager.h" />
 		<Unit filename="PlayerCharacter.cpp" />
 		<Unit filename="PlayerCharacter.h" />
 		<Unit filename="Projectile.cpp" />
