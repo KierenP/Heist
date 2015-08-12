@@ -15,14 +15,14 @@ TileEngine::TileEngine(std::string pFileLocation)
     LoadFromFile(pFileLocation);
 }
 
-TileEngine::TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec)
+TileEngine::TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX, float pPosY)
 {
-    LoadFromParam(pPosX, pPosY, pTileWidth, pTileHeight, pMapSizeX, pMapSizeY, pTileSet, pTileIDVec, pSolidStateVec);
+    LoadFromParam(pTileWidth, pTileHeight, pMapSizeX, pMapSizeY, pTileSet, pTileIDVec, pSolidStateVec, pPosX, pPosY);
 }
 
-TileEngine::TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles)
+TileEngine::TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles, float pPosX, float pPosY)
 {
-    LoadFromTiles(pPosX, pPosY, pTileWidth, pTileHeight, pMapSizeX, pMapSizeY, pTileSet, pTiles);
+    LoadFromTiles(pTileWidth, pTileHeight, pMapSizeX, pMapSizeY, pTileSet, pTiles, pPosX, pPosY);
 }
 
 void TileEngine::LoadFromFile(std::string pFileLocation)
@@ -30,7 +30,7 @@ void TileEngine::LoadFromFile(std::string pFileLocation)
     //Load from File
 }
 
-void TileEngine::LoadFromParam(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec)
+void TileEngine::LoadFromParam(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX, float pPosY)
 {
     mPosX = pPosX;
     mPosY = pPosY;
@@ -61,7 +61,7 @@ void TileEngine::LoadFromParam(float pPosX, float pPosY, float pTileWidth, float
     UpdateTileSpritePos();
 }
 
-void TileEngine::LoadFromTiles(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles)
+void TileEngine::LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, float pPosX, float pPosY)
 {
     mPosX = pPosX;
     mPosY = pPosY;
@@ -93,4 +93,21 @@ void TileEngine::UpdateTileSpritePos()
             mTiles[i][j].mTileSprite.setPosition(mPosX + j * mTileWidth, mPosY + i * mTileHeight);
         }
     }
+}
+
+bool TileEngine::CheckSolid(float px, float py)
+{
+    float RelX = px - mPosX;
+    float RelY = py - mPosY;
+
+    if (RelX < 0 || RelY < 0 || RelX > mMapSizeX * mTileWidth ||  RelY > mMapSizeY * mTileHeight)  //If out of the world, colision = true
+        return true;
+
+    int TilesX = static_cast<int>(RelX / mTileWidth);
+    int TilesY = static_cast<int>(RelY / mTileHeight);
+
+    if (mTiles[TilesY][TilesX].mSolidState)  //guarenteed not to throw out of range exeption because of previous if statement exclusing out of bounds values
+        return true;
+
+    return false;
 }

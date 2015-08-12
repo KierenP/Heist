@@ -85,9 +85,11 @@ void PlayerCharacter::RenderProjectiles(sf::RenderWindow* pTarget)
     }
 }
 
-void PlayerCharacter::Update(float TimeStep, KeyState val)
+void PlayerCharacter::Update(float TimeStep, KeyState val, bool WillCollide)
 {
-    Move(val, TimeStep);
+    if (!WillCollide)   //LevelEntityManager will pass a true of false wether it is allowed to move
+        Move(val, TimeStep);
+
     UpdateSprite();
 
     if (val.LMBPressed && mWeaponClock.getElapsedTime().asSeconds() > mWeapon.mFireRate)

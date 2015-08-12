@@ -11,12 +11,12 @@ void Render();
 void Update();
 void GenerateTestLevel();
 
+unsigned int const MapWidth = 20;
+unsigned int const MapHeight = 20;
+
 sf::ContextSettings settings;
-
 sf::RenderWindow window;
-
 LevelEntityManager TestLevel;
-
 KeyState KeysPressed;
 
 int main()
@@ -28,7 +28,7 @@ int main()
 
     GenerateTestLevel();
 
-    PlayerCharacter MyPlayer(500, 500, 150, 100);
+    PlayerCharacter MyPlayer(512, 512, 150, 100);
     TileEngine MyEngine;
     sf::Texture MyTexture;
     sf::Texture TileSet;
@@ -42,22 +42,29 @@ int main()
     std::vector<std::vector<int> > TileIDVec;
     std::vector<std::vector<bool> > SolidStateVec;
 
-    for (int i = 0; i < 100; i++)
+    for (unsigned int i = 0; i < MapHeight; i++)
     {
         std::vector<bool> boolRow;
         std::vector<int> intRow;
 
-        for (int j = 0; j < 100; j++)
+        for (unsigned int j = 0; j < MapWidth; j++)
         {
-            boolRow.push_back(rand() % 2);
-            intRow.push_back(rand() % 1 + 1);
+            intRow.push_back(rand() % 10);   //random between 0 and 0 (always 0) and then +1 to always be 1
+
+            if (intRow[j] > 1)
+                intRow[j] = 1;
+
+            if (intRow[j] == 0)
+                boolRow.push_back(true);       //random between 0 and 0
+            else
+                boolRow.push_back(false);
         }
 
         SolidStateVec.push_back(boolRow);
         TileIDVec.push_back(intRow);
     }
 
-    MyEngine.LoadFromParam(0, 0, 32, 32, 100, 100, TileSet, TileIDVec, SolidStateVec);
+    MyEngine.LoadFromParam(32, 32, MapWidth, MapHeight, TileSet, TileIDVec, SolidStateVec, 64, 64);
 
     TestLevel.SetPlayer(MyPlayer);
     TestLevel.SetTileEngine(MyEngine);

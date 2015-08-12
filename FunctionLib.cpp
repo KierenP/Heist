@@ -46,3 +46,38 @@ float DirectionToPoint(Entity* a, Entity* b)
     return atan2(DiffY, DiffX);
 }
 
+std::vector<sf::Vector2f> GenerateBoxFromSprite(sf::Sprite pSprite)
+{
+    sf::Vector2f P1((pSprite.getPosition().x - pSprite.getOrigin().x), (pSprite.getPosition().y - pSprite.getOrigin().y)); //Top right corner
+    sf::Vector2f P2((pSprite.getPosition().x + pSprite.getOrigin().x), (pSprite.getPosition().y - pSprite.getOrigin().y)); //Top left
+    sf::Vector2f P3((pSprite.getPosition().x - pSprite.getOrigin().x), (pSprite.getPosition().y + pSprite.getOrigin().y)); //Bottom Right
+    sf::Vector2f P4((pSprite.getPosition().x + pSprite.getOrigin().x), (pSprite.getPosition().y + pSprite.getOrigin().y)); //Bottom left
+
+    std::vector<sf::Vector2f> CornerPoints;
+
+    CornerPoints.push_back(P1);
+    CornerPoints.push_back(P2);
+    CornerPoints.push_back(P3);
+    CornerPoints.push_back(P4);
+
+    return CornerPoints;
+}
+
+std::vector<sf::Vector2f> GenerateBoxFromDimentions(float px, float py, float width, float height)
+{
+    sf::Vector2f P1(px, py); //Top right corner
+    sf::Vector2f P2(px + width, py); //Top left
+    sf::Vector2f P3(px, py + height); //Bottom Right
+    sf::Vector2f P4(px + width, py + height); //Bottom left
+
+    std::vector<sf::Vector2f> CornerPoints;
+
+    CornerPoints.push_back(P1);
+    CornerPoints.push_back(P2);
+    CornerPoints.push_back(P3);
+    CornerPoints.push_back(P4);
+
+    return CornerPoints;
+}
+
+

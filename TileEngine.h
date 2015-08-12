@@ -15,8 +15,8 @@ class TileEngine
 public:
     TileEngine();                               //Defult ctor
     TileEngine(std::string pFileLocation);      //Generate from a file
-    TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec);   //Generate from paramiters
-    TileEngine(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles);    //Generate from already generated Tile vector
+    TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);   //Generate from paramiters
+    TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles, float pPosX = 0, float pPosY = 0);    //Generate from already generated Tile vector
     ~TileEngine();
 
     //Getters
@@ -35,9 +35,10 @@ public:
 
     //Public member functions
     void LoadFromFile(std::string pFileLocation);
-    void LoadFromParam(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec);
-    void LoadFromTiles(float pPosX, float pPosY, float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles);
+    void LoadFromParam(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);
+    void LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, float pPosX = 0, float pPosY = 0);
     void Render(sf::RenderWindow* pTarget);
+    bool CheckSolid(float px, float py);
 
 private:
     void UpdateTileSpritePos();

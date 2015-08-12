@@ -44,7 +44,7 @@ public:
 
     //Member Functions
     void Render(sf::RenderWindow* pTarget);     //Draw the player sprite and the projectiles
-    void Update(float TimeStep, KeyState val);  //Update the projectiles positions and the players sprite
+    void Update(float TimeStep, KeyState val, bool WillCollide);  //Update the projectiles positions and the players sprite
     void GenerateProjectile();
 
 private:

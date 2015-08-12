@@ -23,6 +23,8 @@ public:
     void Update(KeyState pKeyState);
 
 private:
+    bool CheckTileSolidColision(std::vector<sf::Vector2f> CornerPoints);
+    sf::Vector2f GetPlayerNewPosition(PlayerCharacter pPlayer, KeyState pKeyState);
 
     sf::RenderWindow* mpTarget;
     TileEngine mTileEngine;
