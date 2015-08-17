@@ -1,25 +1,25 @@
-#ifndef WEAPONSTATS_H_INCLUDED
-#define WEAPONSTATS_H_INCLUDED
+    #ifndef WEAPONSTATS_H_INCLUDED
+    #define WEAPONSTATS_H_INCLUDED
 
-#include <SFML/Graphics.hpp>
+    #include <SFML/Graphics.hpp>
 
-struct WeaponStats
-{
-    float mDamage;
-    float mBulletSpeed;
-    float mFireRate;
-    float mBulletSpred;
-    sf::Texture mBulletTexture;
-};
+    struct WeaponStats
+    {
+        float mDamage;
+        float mBulletSpeed;
+        float mFireRate;
+        float mBulletSpred;
+        sf::Texture mBulletTexture;
+    };
 
-enum WeaponTypes
-{
-    RifleWeapon,
-    SMGWeapon,
-    ShotGunWeapon,
-};
+    enum WeaponTypes
+    {
+        RifleWeapon,
+        SMGWeapon,
+        ShotGunWeapon,
+    };
 
-WeaponStats GetWeaponStat(WeaponTypes WeaponID);
+    WeaponStats GetWeaponStat(WeaponTypes WeaponID);
 
 
-#endif // WEAPONSTATS_H_INCLUDED
+    #endif // WEAPONSTATS_H_INCLUDED

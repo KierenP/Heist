@@ -38,7 +38,7 @@ public:
     void LoadFromParam(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);
     void LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, float pPosX = 0, float pPosY = 0);
     void Render(sf::RenderWindow* pTarget);
-    bool CheckSolid(float px, float py);
+    bool CheckSolid(float px, float py) const;
 
 private:
     void UpdateTileSpritePos();

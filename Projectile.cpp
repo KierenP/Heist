@@ -2,7 +2,14 @@
 
 Projectile::Projectile()
 {
+    sf::Texture MyText;
 
+    CalculateVelocities(0, 0);
+    SetDamage(0);
+    SetTexture(MyText);
+    SetDirection(0);
+    SetPosX(0);
+    SetPosY(0);
 }
 
 Projectile::~Projectile()
@@ -50,6 +57,6 @@ void Projectile::UpdateSprite()
 
 void Projectile::CalculateVelocities(float pDirection, float pVelocity)
 {
-    VelX = ToDegrees(cos(ToRadians(pDirection))) * pVelocity;
-    VelY = ToDegrees(sin(ToRadians(pDirection))) * pVelocity;
+    VelX = FunctionLib::ToDegrees(cos(FunctionLib::ToRadians(pDirection))) * pVelocity;
+    VelY = FunctionLib::ToDegrees(sin(FunctionLib::ToRadians(pDirection))) * pVelocity;
 }

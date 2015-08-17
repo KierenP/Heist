@@ -95,7 +95,7 @@ void TileEngine::UpdateTileSpritePos()
     }
 }
 
-bool TileEngine::CheckSolid(float px, float py)
+bool TileEngine::CheckSolid(float px, float py) const
 {
     float RelX = px - mPosX;
     float RelY = py - mPosY;

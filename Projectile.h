@@ -11,7 +11,7 @@ class Projectile : public Entity
 public:
     //Construtor and Destructor
     Projectile();
-    Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Texture mSpriteTexture);    //You can give it a direction and a speed
+    Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Texture pSpriteTexture);    //You can give it a direction and a speed
     ~Projectile();
 
     //getters
@@ -19,6 +19,7 @@ public:
     float GetVelY() { return VelY; }
     float GetDamage() { return mDamage; }
     sf::Sprite GetSprite() { return mSprite; }
+    sf::Texture GetTexture() { return mSpriteTexture; }
     float GetDirection() { return mDirection; }
 
     //setters

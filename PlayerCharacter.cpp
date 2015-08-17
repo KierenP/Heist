@@ -37,16 +37,16 @@ void PlayerCharacter::SetHealth(float val)
     }
 }
 
-void PlayerCharacter::SetTexture(sf::Texture val)
-{
+ void PlayerCharacter::SetTexture(sf::Texture val)
+ {
     mTexture = val;
     mSprite.setTexture(mTexture);
     mSprite.setOrigin(mTexture.getSize().x / 2, mTexture.getSize().y / 2);  //Set the origin to be the center of the texture so it rotates around the center
     //mSprite.setOrigin(0, 0);
-}
+ }
 
-void PlayerCharacter::Move(KeyState var, float TimeStep)
-{
+ void PlayerCharacter::Move(KeyState var, float TimeStep)
+ {
     if (var.UpPressed)
         SetPosY(mPosY -= mSpeed * TimeStep);
     if (var.DownPressed)
@@ -55,7 +55,7 @@ void PlayerCharacter::Move(KeyState var, float TimeStep)
         SetPosX(mPosX -= mSpeed * TimeStep);
     if (var.RightPressed)
         SetPosX(mPosX += mSpeed * TimeStep);
-}
+ }
 
 void PlayerCharacter::Render(sf::RenderWindow* pTarget)
 {
@@ -108,4 +108,11 @@ void PlayerCharacter::GenerateProjectile()
     Projectile Temp(mPosX, mPosY, RandDir, mWeapon.mBulletSpeed, mWeapon.mDamage, mWeapon.mBulletTexture);
 
     mProjectiles.push_back(Temp);
+}
+
+void PlayerCharacter::RemoveProjectile(unsigned int index)
+{
+    if (index >= mProjectiles.size())
+        return;
+    mProjectiles.erase(mProjectiles.begin() + index);
 }

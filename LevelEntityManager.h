@@ -9,6 +9,7 @@ class LevelEntityManager
 {
 public:
     LevelEntityManager();
+    LevelEntityManager(sf::RenderWindow* pTarget, TileEngine pTileEngine, PlayerCharacter pPlayer);
     ~LevelEntityManager();
 
     sf::RenderWindow* GetTarget() { return mpTarget; }
@@ -23,8 +24,9 @@ public:
     void Update(KeyState pKeyState);
 
 private:
-    bool CheckTileSolidColision(std::vector<sf::Vector2f> CornerPoints);
-    sf::Vector2f GetPlayerNewPosition(PlayerCharacter pPlayer, KeyState pKeyState);
+    bool CheckTileSolidColision(std::vector<sf::Vector2f> CornerPoints) const;
+    sf::Vector2f GetPlayerNewPosition(PlayerCharacter& pPlayer, KeyState pKeyState);
+    sf::Vector2f GetBulletNewPosition(Projectile& pProjectile);
 
     sf::RenderWindow* mpTarget;
     TileEngine mTileEngine;

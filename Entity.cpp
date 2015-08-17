@@ -1,9 +1,8 @@
 #include "Entity.h"
 
-Entity::Entity()
-{
+Entity::Entity(): mPosX(0), mPosY(0) {}
 
-}
+
 
 Entity::~Entity()
 {

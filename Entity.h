@@ -1,18 +1,16 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include <cmath>
-
 class Entity
 {
 public:
     Entity();
     Entity(float px, float py) : mPosX(px), mPosY(py) {}
-    ~Entity();
+    virtual ~Entity();
 
     //Getters
-    float GetPosX() { return mPosX; }
-    float GetPosY() { return mPosY; }
+    float GetPosX() const { return mPosX; }
+    float GetPosY() const { return mPosY; }
 
     //Setters
     void SetPosX(float val) { mPosX = val; }

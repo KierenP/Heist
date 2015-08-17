@@ -11,13 +11,16 @@ void Render();
 void Update();
 void GenerateTestLevel();
 
-unsigned int const MapWidth = 20;
-unsigned int const MapHeight = 20;
+unsigned int const MapWidth = 40;
+unsigned int const MapHeight = 40;
 
 sf::ContextSettings settings;
 sf::RenderWindow window;
 LevelEntityManager TestLevel;
 KeyState KeysPressed;
+
+PlayerCharacter MyPlayer(512, 512, 150, 100);
+TileEngine MyEngine;
 
 int main()
 {
@@ -28,8 +31,15 @@ int main()
 
     GenerateTestLevel();
 
-    PlayerCharacter MyPlayer(512, 512, 150, 100);
-    TileEngine MyEngine;
+    while (window.isOpen())
+    {
+        PollEvent();
+        Render();
+    }
+}
+
+void GenerateTestLevel()
+{
     sf::Texture MyTexture;
     sf::Texture TileSet;
 
@@ -69,17 +79,6 @@ int main()
     TestLevel.SetPlayer(MyPlayer);
     TestLevel.SetTileEngine(MyEngine);
     TestLevel.SetTarget(&window);
-
-    while (window.isOpen())
-    {
-        PollEvent();
-        Render();
-    }
-}
-
-void GenerateTestLevel()
-{
-
 }
 
 void PollEvent()

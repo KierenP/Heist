@@ -25,12 +25,12 @@ public:
     ~PlayerCharacter();
 
     //Getters
-    float GetSpeed() { return mSpeed; }
-    float GetHealth() {return mHealth; }
-    sf::Sprite GetSprite() { return mSprite; }
-    sf::Texture GetTexture() { return mTexture; }
-    float GetDirection() { return mDirection; }
-    WeaponStats GetWeapon() { return mWeapon; }
+    float GetSpeed() const { return mSpeed; }
+    float GetHealth() const {return mHealth; }
+    sf::Sprite GetSprite() const { return mSprite; }
+    sf::Texture GetTexture() const { return mTexture; }
+    float GetDirection() const { return mDirection; }
+    WeaponStats GetWeapon() const { return mWeapon; }
     std::vector<Projectile>& GetProjectiles() { return mProjectiles; }
 
     //Setters
@@ -46,6 +46,7 @@ public:
     void Render(sf::RenderWindow* pTarget);     //Draw the player sprite and the projectiles
     void Update(float TimeStep, KeyState val, bool WillCollide);  //Update the projectiles positions and the players sprite
     void GenerateProjectile();
+    void RemoveProjectile(unsigned int index);
 
 private:
     void UpdateProjectiles(float TimeStep);
