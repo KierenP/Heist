@@ -13,6 +13,8 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-Wextra" />
+					<Add option="-Wall" />
 					<Add option="-g" />
 					<Add directory="../Heist-Develop" />
 				</Compiler>
@@ -29,7 +31,8 @@
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-g" />
 					<Add directory="../Heist-Develop" />
 				</Compiler>
 				<Linker>
@@ -46,6 +49,10 @@
 		<Linker>
 			<Add directory="../SFML-2.3.1/lib" />
 		</Linker>
+		<Unit filename="Character.cpp" />
+		<Unit filename="Character.h" />
+		<Unit filename="CivCharacter.cpp" />
+		<Unit filename="CivCharacter.h" />
 		<Unit filename="Entity.cpp" />
 		<Unit filename="Entity.h" />
 		<Unit filename="FunctionLib.cpp" />

@@ -16,9 +16,9 @@ WeaponStats GetWeaponStat(WeaponTypes WeaponID)
             break;
         case SMGWeapon:
             WeaponIDTexture.loadFromFile("Bullet.png");
-            WeaponIDStats.mBulletSpeed = 2;
+            WeaponIDStats.mBulletSpeed = 20;
             WeaponIDStats.mDamage = 7;
-            WeaponIDStats.mFireRate = 0.02;
+            WeaponIDStats.mFireRate = 0.05;
             WeaponIDStats.mBulletSpred = 0;
             break;
         case ShotGunWeapon:

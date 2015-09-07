@@ -5,32 +5,36 @@
 #include "TileEngine.h"
 #include <SFML/Graphics.hpp>
 
+#include <vector>
+
 class LevelEntityManager
 {
 public:
     LevelEntityManager();
-    LevelEntityManager(sf::RenderWindow* pTarget, TileEngine pTileEngine, PlayerCharacter pPlayer);
+    LevelEntityManager(sf::RenderWindow* pTarget, TileEngine pTileEngine, std::vector<Character*> pPlayers);
     ~LevelEntityManager();
 
     sf::RenderWindow* GetTarget() { return mpTarget; }
     TileEngine GetTileEngine() { return mTileEngine; }
-    PlayerCharacter GetPlayer() { return mPlayer; }
+    std::vector<Character*> GetPlayers() { return mPlayers; }
+    Character* GetPlayer(unsigned int index) { return mPlayers[index]; }
 
     void SetTarget(sf::RenderWindow* val) { mpTarget = val; }
     void SetTileEngine(TileEngine val) { mTileEngine = val; }
-    void SetPlayer(PlayerCharacter val) { mPlayer = val; }
+    void SetPlayers(std::vector<Character*> val) { mPlayers = val; }
 
     void Render();
     void Update(KeyState pKeyState);
+    void AddPlayer(Character* val) { mPlayers.push_back(val); }
 
 private:
     bool CheckTileSolidColision(std::vector<sf::Vector2f> CornerPoints) const;
-    sf::Vector2f GetPlayerNewPosition(PlayerCharacter& pPlayer, KeyState pKeyState);
+    sf::Vector2f GetPlayerNewPosition(Character& pPlayer, KeyState pKeyState);
     sf::Vector2f GetBulletNewPosition(Projectile& pProjectile);
 
     sf::RenderWindow* mpTarget;
     TileEngine mTileEngine;
-    PlayerCharacter mPlayer;
+    std::vector<Character*> mPlayers;
 
     sf::Clock mFrameClock;
     float mFrameTime;

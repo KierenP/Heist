@@ -1193,13 +1193,12 @@
 	<string>
 	<vector>
 
-1438566865 source:e:\heist-develop\entity.cpp
+1439777454 source:e:\heist-develop\entity.cpp
 	"Entity.h"
 
-1438566865 e:\heist-develop\entity.h
-	<cmath>
+1439778953 e:\heist-develop\entity.h
 
-1439257231 source:e:\heist-develop\main.cpp
+1439783028 source:e:\heist-develop\main.cpp
 	"PlayerCharacter.h"
 	"FunctionLib.h"
 	"TileEngine.h"
@@ -1207,10 +1206,8 @@
 	<stdlib.h>
 	<time.h>
 
-1439256548 e:\heist-develop\playercharacter.h
-	"Entity.h"
-	"WeaponStats.h"
-	"Projectile.h"
+1439945777 e:\heist-develop\playercharacter.h
+	"Character.h"
 	<SFML/Graphics.hpp>
 	<vector>
 
@@ -1592,14 +1589,16 @@
 	<string>
 	<vector>
 
-1439340001 source:e:\heist-develop\playercharacter.cpp
+1439945117 source:e:\heist-develop\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1438566866 source:e:\heist-develop\functionlib.cpp
+1439807055 source:e:\heist-develop\functionlib.cpp
 	"FunctionLib.h"
+	<cmath>
 
-1438566866 e:\heist-develop\functionlib.h
+1439806605 e:\heist-develop\functionlib.h
 	"Entity.h"
+	"SFML/Graphics.hpp"
 
 1437358956 source:c:\users\kieren\documents\github\heist\functionlib.cpp
 	"FunctionLib.h"
@@ -1689,35 +1688,35 @@
 1438566869 source:e:\temp\heist-develop\weaponstats.cpp
 	"WeaponStats.h"
 
-1438652005 e:\heist-develop\weaponstats.h
+1439778733 e:\heist-develop\weaponstats.h
 	<SFML/Graphics.hpp>
 
-1438650538 e:\heist-develop\projectile.h
+1439807802 e:\heist-develop\projectile.h
 	"Entity.h"
 	"FunctionLib.h"
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1438650771 source:e:\heist-develop\projectile.cpp
+1439806791 source:e:\heist-develop\projectile.cpp
 	"Projectile.h"
 
-1438734107 source:e:\heist-develop\weaponstats.cpp
+1439945454 source:e:\heist-develop\weaponstats.cpp
 	"WeaponStats.h"
 
-1438566865 source:f:\heist-develop\entity.cpp
+1439777454 source:f:\heist-develop\entity.cpp
 	"Entity.h"
 
-1439370154 f:\heist-develop\entity.h
+1439778953 f:\heist-develop\entity.h
+
+1439807055 source:f:\heist-develop\functionlib.cpp
+	"FunctionLib.h"
 	<cmath>
 
-1439367416 source:f:\heist-develop\functionlib.cpp
-	"FunctionLib.h"
-
-1439367409 f:\heist-develop\functionlib.h
+1439806605 f:\heist-develop\functionlib.h
 	"Entity.h"
 	"SFML/Graphics.hpp"
 
-1439365350 source:f:\heist-develop\main.cpp
+1439783028 source:f:\heist-develop\main.cpp
 	"PlayerCharacter.h"
 	"FunctionLib.h"
 	"TileEngine.h"
@@ -1725,14 +1724,14 @@
 	<stdlib.h>
 	<time.h>
 
-1439256548 f:\heist-develop\playercharacter.h
+1439807683 f:\heist-develop\playercharacter.h
 	"Entity.h"
 	"WeaponStats.h"
 	"Projectile.h"
 	<SFML/Graphics.hpp>
 	<vector>
 
-1438652005 f:\heist-develop\weaponstats.h
+1439778733 f:\heist-develop\weaponstats.h
 	<SFML/Graphics.hpp>
 
 1437212154 f:\sfml-2.3.1\include\sfml\graphics.hpp
@@ -2113,48 +2112,58 @@
 	<string>
 	<vector>
 
-1438650538 f:\heist-develop\projectile.h
+1439807802 f:\heist-develop\projectile.h
 	"Entity.h"
 	"FunctionLib.h"
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1439340001 source:f:\heist-develop\playercharacter.cpp
+1439809086 source:f:\heist-develop\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1438650771 source:f:\heist-develop\projectile.cpp
+1439806791 source:f:\heist-develop\projectile.cpp
 	"Projectile.h"
 
-1438734107 source:f:\heist-develop\weaponstats.cpp
+1439808466 source:f:\heist-develop\weaponstats.cpp
 	"WeaponStats.h"
 
-1439339955 source:e:\heist-develop\tileengine.cpp
+1439778898 source:e:\heist-develop\tileengine.cpp
 	"TileEngine.h"
 
-1439256604 e:\heist-develop\tileengine.h
+1439778713 e:\heist-develop\tileengine.h
 	"Entity.h"
 	"SFML/Graphics.hpp"
 
-1439369783 source:f:\heist-develop\tileengine.cpp
+1439778898 source:f:\heist-develop\tileengine.cpp
 	"TileEngine.h"
 
-1439256604 f:\heist-develop\tileengine.h
+1439778713 f:\heist-develop\tileengine.h
 	"Entity.h"
 	"SFML/Graphics.hpp"
 
-1439339097 source:e:\heist-develop\levelentitymanager.cpp
+1441592253 source:e:\heist-develop\levelentitymanager.cpp
 	"LevelEntityManager.h"
 
-1439256548 e:\heist-develop\levelentitymanager.h
+1441591986 e:\heist-develop\levelentitymanager.h
+	"PlayerCharacter.h"
+	"TileEngine.h"
+	<SFML/Graphics.hpp>
+	<vector>
+
+1439808024 source:f:\heist-develop\levelentitymanager.cpp
+	"LevelEntityManager.h"
+
+1439806344 f:\heist-develop\levelentitymanager.h
 	"PlayerCharacter.h"
 	"TileEngine.h"
 	<SFML/Graphics.hpp>
 
-1439370153 source:f:\heist-develop\levelentitymanager.cpp
-	"LevelEntityManager.h"
+1439945410 source:e:\heist-develop\character.cpp
+	"Character.h"
 
-1439368606 f:\heist-develop\levelentitymanager.h
-	"PlayerCharacter.h"
-	"TileEngine.h"
+1439945273 e:\heist-develop\character.h
+	"Entity.h"
+	"WeaponStats.h"
+	"Projectile.h"
 	<SFML/Graphics.hpp>
 

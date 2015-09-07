@@ -76,7 +76,11 @@ void GenerateTestLevel()
 
     MyEngine.LoadFromParam(32, 32, MapWidth, MapHeight, TileSet, TileIDVec, SolidStateVec, 64, 64);
 
-    TestLevel.SetPlayer(MyPlayer);
+    std::vector<Character*> MyPlayerVec;
+
+    MyPlayerVec.push_back(&MyPlayer);
+
+    TestLevel.SetPlayers(MyPlayerVec);
     TestLevel.SetTileEngine(MyEngine);
     TestLevel.SetTarget(&window);
 }
