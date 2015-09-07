@@ -19,7 +19,8 @@ sf::RenderWindow window;
 LevelEntityManager TestLevel;
 KeyState KeysPressed;
 
-PlayerCharacter MyPlayer(512, 512, 150, 100);
+Character MyPlayer;
+Character MyPlayer2;
 TileEngine MyEngine;
 
 int main()
@@ -48,6 +49,19 @@ void GenerateTestLevel()
 
     MyPlayer.SetTexture(MyTexture);
     MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
+    MyPlayer.SetHealth(100);
+    MyPlayer.SetPosX(512);
+    MyPlayer.SetPosY(512);
+    MyPlayer.SetSpeed(150);
+    MyPlayer.SetPlayerID(PlayerCharacter);
+
+    MyPlayer2.SetTexture(MyTexture);
+    MyPlayer2.SetWeapon(GetWeaponStat(SMGWeapon));
+    MyPlayer2.SetHealth(100);
+    MyPlayer2.SetPosX(256);
+    MyPlayer2.SetPosY(256);
+    MyPlayer2.SetSpeed(10);
+    MyPlayer2.SetPlayerID(Team2Ai);
 
     std::vector<std::vector<int> > TileIDVec;
     std::vector<std::vector<bool> > SolidStateVec;
@@ -59,13 +73,13 @@ void GenerateTestLevel()
 
         for (unsigned int j = 0; j < MapWidth; j++)
         {
-            intRow.push_back(rand() % 10);   //random between 0 and 0 (always 0) and then +1 to always be 1
+            intRow.push_back(rand() % 10);
 
             if (intRow[j] > 1)
                 intRow[j] = 1;
 
             if (intRow[j] == 0)
-                boolRow.push_back(true);       //random between 0 and 0
+                boolRow.push_back(true);
             else
                 boolRow.push_back(false);
         }
@@ -79,6 +93,7 @@ void GenerateTestLevel()
     std::vector<Character*> MyPlayerVec;
 
     MyPlayerVec.push_back(&MyPlayer);
+    MyPlayerVec.push_back(&MyPlayer2);
 
     TestLevel.SetPlayers(MyPlayerVec);
     TestLevel.SetTileEngine(MyEngine);

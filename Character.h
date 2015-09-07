@@ -14,6 +14,12 @@ struct  KeyState{
     bool LMBPressed;
 };
 
+enum PlayerTypes{
+    PlayerCharacter,
+    Team1Ai,
+    Team2Ai
+};
+
 class Character : public Entity
 {
 public:
@@ -28,6 +34,7 @@ public:
     WeaponStats GetWeapon() { return mWeapon; }
     std::vector<Projectile> GetProjectiles() { return mProjectiles; }
     sf::Clock GetWeaponClock() { return mWeaponClock; }
+    PlayerTypes GetPlayerID() { return PlayerID; }
 
     void SetSprite(sf::Sprite val) { mSprite = val; }
     void SetTexture(sf::Texture val);
@@ -37,6 +44,7 @@ public:
     void SetWeapon(WeaponStats pWeapon) { mWeapon = pWeapon; }
     void SetProjectiles(std::vector<Projectile> val) { mProjectiles = val; }
     void SetWeaponClock(sf::Clock val) { mWeaponClock = val; }
+    void SetPlayerID(PlayerTypes val) { PlayerID = val; }
 
     void Render(sf::RenderWindow* pTarget);     //Draw the player sprite and the projectiles
     void GenerateProjectile();
@@ -57,6 +65,7 @@ private:
     WeaponStats mWeapon;
     std::vector<Projectile> mProjectiles;
     sf::Clock mWeaponClock;
+    PlayerTypes PlayerID;
 };
 
 #endif // CHARACTER_H

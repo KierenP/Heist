@@ -801,19 +801,23 @@
 1437382197 source:c:\users\kieren\documents\github\heist\playercharacter.cpp
 	"PlayerCharacter.h"
 
-1437381888 c:\users\kieren\documents\github\heist\playercharacter.h
-	"Entity.h"
+1441615728 c:\users\kieren\documents\github\heist\playercharacter.h
+	"Character.h"
 	<SFML/Graphics.hpp>
+	<vector>
 
-1437378224 source:c:\users\kieren\documents\github\heist\entity.cpp
+1439777454 source:c:\users\kieren\documents\github\heist\entity.cpp
 	"Entity.h"
 
-1437358621 c:\users\kieren\documents\github\heist\entity.h
-	<cmath>
+1439778953 c:\users\kieren\documents\github\heist\entity.h
 
-1437382128 source:c:\users\kieren\documents\github\heist\main.cpp
+1441620728 source:c:\users\kieren\documents\github\heist\main.cpp
 	"PlayerCharacter.h"
 	"FunctionLib.h"
+	"TileEngine.h"
+	"LevelEntityManager.h"
+	<stdlib.h>
+	<time.h>
 
 1437212154 c:\users\kieren\documents\github\sfml-2.3.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1600,11 +1604,13 @@
 	"Entity.h"
 	"SFML/Graphics.hpp"
 
-1437358956 source:c:\users\kieren\documents\github\heist\functionlib.cpp
+1439807055 source:c:\users\kieren\documents\github\heist\functionlib.cpp
 	"FunctionLib.h"
+	<cmath>
 
-1437359133 c:\users\kieren\documents\github\heist\functionlib.h
+1439806605 c:\users\kieren\documents\github\heist\functionlib.h
 	"Entity.h"
+	"SFML/Graphics.hpp"
 
 1438130279 source:e:\heist-master\entity.cpp
 	"Entity.h"
@@ -2166,4 +2172,44 @@
 	"WeaponStats.h"
 	"Projectile.h"
 	<SFML/Graphics.hpp>
+
+1441615728 source:c:\users\kieren\documents\github\heist\character.cpp
+	"Character.h"
+
+1441619199 c:\users\kieren\documents\github\heist\character.h
+	"Entity.h"
+	"WeaponStats.h"
+	"Projectile.h"
+	<SFML/Graphics.hpp>
+
+1439778733 c:\users\kieren\documents\github\heist\weaponstats.h
+	<SFML/Graphics.hpp>
+
+1439807802 c:\users\kieren\documents\github\heist\projectile.h
+	"Entity.h"
+	"FunctionLib.h"
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1441621583 source:c:\users\kieren\documents\github\heist\levelentitymanager.cpp
+	"LevelEntityManager.h"
+
+1441620660 c:\users\kieren\documents\github\heist\levelentitymanager.h
+	"PlayerCharacter.h"
+	"TileEngine.h"
+	<SFML/Graphics.hpp>
+	<vector>
+
+1439778713 c:\users\kieren\documents\github\heist\tileengine.h
+	"Entity.h"
+	"SFML/Graphics.hpp"
+
+1439806791 source:c:\users\kieren\documents\github\heist\projectile.cpp
+	"Projectile.h"
+
+1439778898 source:c:\users\kieren\documents\github\heist\tileengine.cpp
+	"TileEngine.h"
+
+1441615728 source:c:\users\kieren\documents\github\heist\weaponstats.cpp
+	"WeaponStats.h"
 
