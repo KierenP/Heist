@@ -30,9 +30,9 @@ void LevelEntityManager::Update(KeyState pKeyState)
             MoveDirection = pKeyState;          //Give to the player the actial state of the keys
             Direction = FunctionLib::ToDegrees(FunctionLib::DirectionToPoint(mPlayers[j]->GetPosX(), mPlayers[j]->GetPosY(), sf::Mouse::getPosition(*mpTarget).x, sf::Mouse::getPosition(*mpTarget).y));
             break;
-        case Team2Ai:    //if not player, must be Ai
+        case AiCharacter:    //if not player, must be Ai
             MoveDirection = AiMoveDecide(mPlayers[j]);   //Generate the direction the AI should move
-            Direction = FunctionLib::ToDegrees(GenerateDirectionFromMove(MoveDirection));
+            Direction = FunctionLib::ToDegrees(GenerateAiDirection(mPlayers[j], MoveDirection));
             break;
         }
 
@@ -103,13 +103,42 @@ bool LevelEntityManager::CheckTileSolidColision(std::vector<sf::Vector2f> Corner
     return false;
 }
 
-float LevelEntityManager::GenerateDirectionFromMove(KeyState val) //Based of a direction a Ai is going to be moving, what is the angle it should face to move in that direction
+float LevelEntityManager::GenerateAiDirection(Character* pCharacter, KeyState val) //Based of a direction a Ai is going to be moving, what is the angle it should face to move in that direction
 {
-    float Xdif = -(val.LeftPressed) + val.RightPressed;
-    float Ydif = -(val.UpPressed) + val.DownPressed;
+    float MinDistance = 999999;         //I dont have a better way of doing this
+    unsigned int ClosestIndex = -1;     //I can test weither this is still -1 after below for loops, and if so, there was noone in a LOS
 
-    float Angle = atan2f(Ydif, Xdif);
+    for (int i = 0; i < mPlayers.size(); i++)
+    {
+        if (pCharacter->GetTeamId() != mPlayers[i]->GetTeamId())  //if the guy is not on the same team
+        {
+            if (!(mTileEngine.CheckLineSolidColision(pCharacter->GetPosX(), pCharacter->GetPosY(), mPlayers[i]->GetPosX(), mPlayers[i]->GetPosY())))
+            {
+                if (FunctionLib::DistanceBetween(pCharacter->GetPosX(), pCharacter->GetPosY(), mPlayers[i]->GetPosX(), mPlayers[i]->GetPosY()) < MinDistance)   //is he closer than any others?
+                {
+                    ClosestIndex = i;   //it is now recoreded that mPlayers[i] is the new closest
+                    MinDistance = FunctionLib::DistanceBetween(pCharacter->GetPosX(), pCharacter->GetPosY(), mPlayers[ClosestIndex]->GetPosX(), mPlayers[ClosestIndex]->GetPosY());   //and his distance is recorded
+                }
+            }
+        }
+    }
 
+    float Angle;
+
+    if (ClosestIndex != -1) //it was set to somthing above, there is a LOS
+    {
+        float Xdif = mPlayers[ClosestIndex]->GetPosX() - pCharacter->GetPosX();
+        float Ydif = mPlayers[ClosestIndex]->GetPosY() - pCharacter->GetPosY();
+
+        Angle = atan2f(Ydif, Xdif);
+    }
+    else    //No los, go in direction of movement
+    {
+        float Xdif = -(val.LeftPressed) + val.RightPressed;
+        float Ydif = -(val.UpPressed) + val.DownPressed;
+
+        Angle = FunctionLib::ToRadians(135);//atan2f(Ydif, Xdif);
+    }
     return Angle;
 }
 
@@ -150,8 +179,8 @@ KeyState LevelEntityManager::AiMoveDecide(Character* pCharacter)
 
     MoveDirection.LMBPressed = false;
 
-    MoveDirection.LeftPressed = true;
-    MoveDirection.DownPressed = true;
+    MoveDirection.LeftPressed = false;
+    MoveDirection.DownPressed = false;
     MoveDirection.RightPressed = false;
     MoveDirection.UpPressed = false;
 
