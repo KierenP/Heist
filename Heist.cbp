@@ -51,16 +51,12 @@
 		</Linker>
 		<Unit filename="Character.cpp" />
 		<Unit filename="Character.h" />
-		<Unit filename="CivCharacter.cpp" />
-		<Unit filename="CivCharacter.h" />
 		<Unit filename="Entity.cpp" />
 		<Unit filename="Entity.h" />
 		<Unit filename="FunctionLib.cpp" />
 		<Unit filename="FunctionLib.h" />
 		<Unit filename="LevelEntityManager.cpp" />
 		<Unit filename="LevelEntityManager.h" />
-		<Unit filename="PlayerCharacter.cpp" />
-		<Unit filename="PlayerCharacter.h" />
 		<Unit filename="Projectile.cpp" />
 		<Unit filename="Projectile.h" />
 		<Unit filename="TileEngine.cpp" />

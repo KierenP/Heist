@@ -133,13 +133,18 @@ bool TileEngine::CheckLineSolidColision(float ax, float ay, float bx, float by)
                 for (int k = 0; k < TilePoints.size(); k++)
                 {
                     if (TilePoints[k].x * m + b > TilePoints[k].y)
-                        PointIsAbove.push_back(false);
-                    else
                         PointIsAbove.push_back(true);
+                    else
+                        PointIsAbove.push_back(false);
                 }
 
-                if (!((PointIsAbove[0] == PointIsAbove[1]) && (PointIsAbove[1] == PointIsAbove[2]) && (PointIsAbove[2] == PointIsAbove[3]) && (PointIsAbove[3] == PointIsAbove[0])));
-                    return true;
+                if (!((PointIsAbove[0] && PointIsAbove[1] && PointIsAbove[2] && PointIsAbove[3]) || (!PointIsAbove[0] && !PointIsAbove[1] && !PointIsAbove[2] && !PointIsAbove[3])))
+                {
+                    if (!(((ax < TilePoints[0].x) && (bx < TilePoints[0].x)) or ((ax > TilePoints[3].x) && (bx > TilePoints[3].x))) && !(((ay < TilePoints[0].y) && (by < TilePoints[0].y)) or ((ay > TilePoints[3].y) && (by > TilePoints[3].y))))
+                    {
+                        return true;
+                    }
+                }
             }
         }
     }

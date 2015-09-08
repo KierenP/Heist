@@ -8,8 +8,8 @@ void Render();
 void Update();
 void GenerateTestLevel();
 
-unsigned int const MapWidth = 40;
-unsigned int const MapHeight = 40;
+unsigned int const MapWidth = 30;
+unsigned int const MapHeight = 30;
 
 sf::ContextSettings settings;
 sf::RenderWindow window;
