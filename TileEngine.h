@@ -2,6 +2,7 @@
 #define TILEENGINE_H_INCLUDED
 
 #include "Entity.h"
+#include "FunctionLib.h"
 #include "SFML/Graphics.hpp"
 
 struct Tile
@@ -39,6 +40,7 @@ public:
     void LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, float pPosX = 0, float pPosY = 0);
     void Render(sf::RenderWindow* pTarget);
     bool CheckSolid(float px, float py) const;
+    bool CheckLineSolidColision(float ax, float ay, float bx, float by);
 
 private:
     void UpdateTileSpritePos();

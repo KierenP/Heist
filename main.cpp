@@ -1,6 +1,3 @@
-#include "PlayerCharacter.h"
-#include "FunctionLib.h"
-#include "TileEngine.h"
 #include "LevelEntityManager.h"
 
 #include <stdlib.h>     /* srand, rand */
@@ -54,6 +51,7 @@ void GenerateTestLevel()
     MyPlayer.SetPosY(512);
     MyPlayer.SetSpeed(150);
     MyPlayer.SetPlayerID(PlayerCharacter);
+    MyPlayer.SetTeamId(0);
 
     MyPlayer2.SetTexture(MyTexture);
     MyPlayer2.SetWeapon(GetWeaponStat(SMGWeapon));
@@ -61,7 +59,8 @@ void GenerateTestLevel()
     MyPlayer2.SetPosX(256);
     MyPlayer2.SetPosY(256);
     MyPlayer2.SetSpeed(10);
-    MyPlayer2.SetPlayerID(Team2Ai);
+    MyPlayer2.SetPlayerID(AiCharacter);
+    MyPlayer.SetTeamId(1);
 
     std::vector<std::vector<int> > TileIDVec;
     std::vector<std::vector<bool> > SolidStateVec;

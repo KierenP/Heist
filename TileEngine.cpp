@@ -111,3 +111,38 @@ bool TileEngine::CheckSolid(float px, float py) const
 
     return false;
 }
+
+bool TileEngine::CheckLineSolidColision(float ax, float ay, float bx, float by)
+{
+    //This code is not very commented. Edit or attempt to understant at your own peril
+
+    for (int i = 0; i < mTiles.size(); i++)
+    {
+        for (int j = 0; j < mTiles[i].size(); j++)
+        {
+            if (mTiles[i][j].mSolidState)
+            {
+                std::vector<sf::Vector2f> TilePoints = FunctionLib::GenerateBoxFromDimentions(j * mTileWidth + mPosX, i * mTileHeight + mPosY, mTileWidth, mTileHeight);
+
+                float m = (by - ay) / (bx - ax);     //trying to find equasion of line in form y = mx + b. I have found m
+
+                float b = ay - m*ax;                       //re arange to form b = y - mx, and sub in values for x and y
+
+                std::vector<bool> PointIsAbove;
+
+                for (int k = 0; k < TilePoints.size(); k++)
+                {
+                    if (TilePoints[k].x * m + b > TilePoints[k].y)
+                        PointIsAbove.push_back(false);
+                    else
+                        PointIsAbove.push_back(true);
+                }
+
+                if (!((PointIsAbove[0] == PointIsAbove[1]) && (PointIsAbove[1] == PointIsAbove[2]) && (PointIsAbove[2] == PointIsAbove[3]) && (PointIsAbove[3] == PointIsAbove[0])));
+                    return true;
+            }
+        }
+    }
+
+    return false;
+}

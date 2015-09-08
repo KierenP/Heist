@@ -16,15 +16,14 @@ struct  KeyState{
 
 enum PlayerTypes{
     PlayerCharacter,
-    Team1Ai,
-    Team2Ai
+    AiCharacter
 };
 
 class Character : public Entity
 {
 public:
     Character();
-    virtual ~Character();
+    ~Character();
 
     sf::Sprite GetSprite() { return mSprite; }
     sf::Texture GetTexture() { return mTexture; }
@@ -35,6 +34,7 @@ public:
     std::vector<Projectile> GetProjectiles() { return mProjectiles; }
     sf::Clock GetWeaponClock() { return mWeaponClock; }
     PlayerTypes GetPlayerID() { return PlayerID; }
+    unsigned int GetTeamId() { return TeamId; }
 
     void SetSprite(sf::Sprite val) { mSprite = val; }
     void SetTexture(sf::Texture val);
@@ -45,6 +45,7 @@ public:
     void SetProjectiles(std::vector<Projectile> val) { mProjectiles = val; }
     void SetWeaponClock(sf::Clock val) { mWeaponClock = val; }
     void SetPlayerID(PlayerTypes val) { PlayerID = val; }
+    void SetTeamId(unsigned int val) { TeamId = val; }
 
     void Render(sf::RenderWindow* pTarget);     //Draw the player sprite and the projectiles
     void GenerateProjectile();
@@ -66,6 +67,7 @@ private:
     std::vector<Projectile> mProjectiles;
     sf::Clock mWeaponClock;
     PlayerTypes PlayerID;
+    unsigned int TeamId;
 };
 
 #endif // CHARACTER_H
