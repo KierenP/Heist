@@ -8,21 +8,21 @@ WeaponStats GetWeaponStat(WeaponTypes WeaponID)
     switch (WeaponID)
     {
         case RifleWeapon:
-            WeaponIDTexture.loadFromFile("Bullet.png");
+            WeaponIDTexture.loadFromFile("Bullet2.png");
             WeaponIDStats.mBulletSpeed = 25;
             WeaponIDStats.mDamage = 10;
             WeaponIDStats.mFireRate = 0.1;
             WeaponIDStats.mBulletSpred = 2;
             break;
         case SMGWeapon:
-            WeaponIDTexture.loadFromFile("Bullet.png");
-            WeaponIDStats.mBulletSpeed = 2;
-            WeaponIDStats.mDamage = 7;
+            WeaponIDTexture.loadFromFile("Bullet2.png");
+            WeaponIDStats.mBulletSpeed = 30;
+            WeaponIDStats.mDamage = 20;
             WeaponIDStats.mFireRate = 0.05;
-            WeaponIDStats.mBulletSpred = 0;
+            WeaponIDStats.mBulletSpred = 3;
             break;
         case ShotGunWeapon:
-            WeaponIDTexture.loadFromFile("Bullet.png");
+            WeaponIDTexture.loadFromFile("Bullet2.png");
             WeaponIDStats.mBulletSpeed = 20;
             WeaponIDStats.mDamage = 20;
             WeaponIDStats.mFireRate = 2;

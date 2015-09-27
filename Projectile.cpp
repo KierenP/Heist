@@ -30,8 +30,8 @@ Projectile::Projectile(float px, float py, float pDirection, float pVelocity, fl
 
 void Projectile::Update(float TimeStep)
 {
-    mPosX += VelX * TimeStep;
-    mPosY += VelY * TimeStep;
+    SetPosX(GetPosX() + mVelX * TimeStep);
+    SetPosY(GetPosY() + mVelY * TimeStep);
 
     UpdateSprite();
 }
@@ -52,11 +52,11 @@ void Projectile::SetTexture(sf::Texture pTexture)
 void Projectile::UpdateSprite()
 {
     mSprite.setTexture(mSpriteTexture);
-    mSprite.setPosition(mPosX, mPosY);
+    mSprite.setPosition(GetPosX(), GetPosY());
 }
 
 void Projectile::CalculateVelocities(float pDirection, float pVelocity)
 {
-    VelX = FunctionLib::ToDegrees(cos(FunctionLib::ToRadians(pDirection))) * pVelocity;
-    VelY = FunctionLib::ToDegrees(sin(FunctionLib::ToRadians(pDirection))) * pVelocity;
+    mVelX = FunctionLib::ToDegrees(cos(FunctionLib::ToRadians(pDirection))) * pVelocity;
+    mVelY = FunctionLib::ToDegrees(sin(FunctionLib::ToRadians(pDirection))) * pVelocity;
 }

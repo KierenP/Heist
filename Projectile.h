@@ -11,37 +11,37 @@ class Projectile : public Entity
 public:
     //Construtor and Destructor
     Projectile();
-    Projectile(float px, float py, float pDirection, float pVelocity, float pDamage, sf::Texture pSpriteTexture);    //You can give it a direction and a speed
+    Projectile(float posX, float posY, float direction, float velocity, float damage, sf::Texture spriteTexture);
     ~Projectile();
 
     //getters
-    float GetVelX() { return VelX; }
-    float GetVelY() { return VelY; }
+    float GetVelX() { return mVelX; }
+    float GetVelY() { return mVelY; }
     float GetDamage() { return mDamage; }
     sf::Sprite GetSprite() { return mSprite; }
     sf::Texture GetTexture() { return mSpriteTexture; }
     float GetDirection() { return mDirection; }
 
     //setters
-    void SetVelX(float pVelX) { VelX = pVelX; }
-    void SetVelY(float pVelY) { VelY = pVelY; }
-    void SetDamage(float pDamage) { mDamage = pDamage; }
-    void SetSprite(sf::Sprite pSprite) { mSprite = pSprite; }
-    void SetDirection(float pDirection);
-    void SetTexture(sf::Texture pTexture);
+    void SetVelX(float val) { mVelX = val; }
+    void SetVelY(float val) { mVelY = val; }
+    void SetDamage(float val) { mDamage = val; }
+    void SetSprite(sf::Sprite val) { mSprite = val; }
+    void SetDirection(float val);
+    void SetTexture(sf::Texture val);
 
     //public member functions
-    void Render(sf::RenderWindow* pTarget) {pTarget->draw(mSprite);}                //draw mSprite to screen
-    void Update(float TimeStep);
+    void Render(sf::RenderWindow* pTarget) { pTarget->draw(mSprite); }               //draw mSprite to screen
+    void Update(float timeStep);
 
 private:
     //private member functions
     void UpdateSprite();
-    void CalculateVelocities(float pDirection, float pVelocity);                    //Based on a direction and a velocity calculate the velocity x and y
+    void CalculateVelocities(float direction, float velocity);                    //Based on a direction and a velocity calculate the velocity x and y
 
     //private member variables
     float mDirection;
-    float VelX, VelY;
+    float mVelX, mVelY;
     float mDamage;
     sf::Texture mSpriteTexture;
     sf::Sprite mSprite;

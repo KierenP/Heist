@@ -1,22 +1,26 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+/*
+
+	This has become so simple, that it might very well be redundant. All it does, is be inherited by all "things" to give them all the same interface,
+	but that interface is so simple it looses meaning and purpose. Im not going to remove this class at the moment (26-9-15) but will look into removing it in the future
+
+*/
+
 class Entity
 {
 public:
-    Entity();
-    Entity(float px, float py) : mPosX(px), mPosY(py) {}
-    ~Entity();  //This should be virtual. Not doing so *should* result in a memory leak, but, doing so results in strange errors. I believe a leak is the lesser of two bugs here
+    Entity(float px = 0, float py = 0) : mPosX(px), mPosY(py) {}
+    virtual ~Entity() {}  
 
-    //Getters
     float GetPosX() const { return mPosX; }
     float GetPosY() const { return mPosY; }
 
-    //Setters
     void SetPosX(float val) { mPosX = val; }
     void SetPosY(float val) { mPosY = val; }
 
-protected:
+private:
     float mPosX;
     float mPosY;
 };

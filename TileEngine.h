@@ -9,6 +9,13 @@ struct Tile
 {
     sf::Sprite mTileSprite;
     bool mSolidState;
+    float g;
+    float h;
+    float f;
+    unsigned int x;
+	unsigned int y;
+    bool Closed;
+    Tile* Parent;
 };
 
 class TileEngine
@@ -16,41 +23,41 @@ class TileEngine
 public:
     TileEngine();                               //Defult ctor
     TileEngine(std::string pFileLocation);      //Generate from a file
-    TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);   //Generate from paramiters
-    TileEngine(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles, float pPosX = 0, float pPosY = 0);    //Generate from already generated Tile vector
+	TileEngine(unsigned int pTileWidth, unsigned int pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);   //Generate from paramiters
+	TileEngine(unsigned int pTileWidth, unsigned int pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> > pTiles, float pPosX = 0, float pPosY = 0);    //Generate from already generated Tile vector
     ~TileEngine();
 
     //Getters
     float GetPosX() { return mPosX; }
     float GetPosY() { return mPosY; }
-    float GetTileWidth() { return mTileWidth; }
-    float GetTileHeight() { return mTileHeight; }
-    float GetSizeX() { return mMapSizeX; }
-    float GetSizeY() { return mMapSizeY; }
-    std::vector<std::vector<Tile> >& GetTiles() { return mTiles; }
+    unsigned int GetTileWidth() { return mTileWidth; }
+	unsigned int GetTileHeight() { return mTileHeight; }
+    unsigned int GetSizeX() { return mMapSizeX; }
+	unsigned int GetSizeY() { return mMapSizeY; }
+    std::vector<std::vector<Tile> >& GetTileVec() { return mTileVec; }
 
     //Setters
     void SetPosX(float pPosX) { mPosX = pPosX; }
     void SetPosY(float pPosY) { mPosY = pPosY; }
-    void SetTiles(std::vector<std::vector<Tile> >& pTiles) { mTiles = pTiles; }
+    void SetTiles(std::vector<std::vector<Tile> >& pTiles) { mTileVec = pTiles; }
 
     //Public member functions
     void LoadFromFile(std::string pFileLocation);
-    void LoadFromParam(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<int> >& pTileIDVec, std::vector<std::vector<bool> >& pSolidStateVec, float pPosX = 0, float pPosY = 0);
-    void LoadFromTiles(float pTileWidth, float pTileHeight, unsigned int pMapSizeX, unsigned int pMapSizeY, sf::Texture pTileSet, std::vector<std::vector<Tile> >& pTiles, float pPosX = 0, float pPosY = 0);
+	void LoadFromParam(unsigned int tileWidth, unsigned int tileHeight, unsigned int mapSizeX, unsigned int mapSizeY, sf::Texture tileSet, std::vector<std::vector<int> >& tileIntVec, std::vector<std::vector<bool> >& tileBoolVec, float posX = 0, float posY = 0);
+	void LoadFromTiles(unsigned int tileWidth, unsigned int tileHeight, unsigned int mapSizeX, unsigned int mapSizeY, sf::Texture tileSet, std::vector<std::vector<Tile> >& tiles, float posX = 0, float posY = 0);
     void Render(sf::RenderWindow* pTarget);
     bool CheckSolid(float px, float py) const;
-    bool CheckLineSolidColision(float ax, float ay, float bx, float by);
+    bool CheckLineSolidColision(float x1, float y1, float x2, float y2);
 
 private:
     void UpdateTileSpritePos();
 
     //Private member variables
     float mPosX, mPosY;                 //Position x and y
-    float mTileWidth, mTileHeight;      //Tile width and height in pixles
+	unsigned int mTileWidth, mTileHeight;      //Tile width and height in pixles
     unsigned int mMapSizeX, mMapSizeY;  //Map size, in tiles
     sf::Texture mTileSet;
-    std::vector<std::vector<Tile> > mTiles;
+    std::vector<std::vector<Tile> > mTileVec;
 };
 
 #endif // TILEENGINE_H_INCLUDED

@@ -11,35 +11,38 @@ class LevelEntityManager
 {
 public:
     LevelEntityManager();
-    LevelEntityManager(sf::RenderWindow* pTarget, TileEngine pTileEngine, std::vector<Character*> pPlayers);
+    LevelEntityManager(sf::RenderWindow* pTarget, TileEngine newTileEngine, std::vector<Character> players);
     ~LevelEntityManager();
 
-    sf::RenderWindow* GetTarget() { return mpTarget; }
-    TileEngine GetTileEngine() { return mTileEngine; }
-    std::vector<Character*> GetPlayers() { return mPlayers; }
-    Character* GetPlayer(unsigned int index) { return mPlayers[index]; }
+    sf::RenderWindow* GetRenderTarget() { return mRenderTarget; }
+    TileEngine& GetTileEngine() { return mTileEngine; }
+    std::vector<Character>& GetPlayerVec() { return mPlayerVec; }
+    Character GetpPlayer(unsigned int index) { return mPlayerVec[index]; }
+    std::vector<sf::Vector2f> GetSpawnPoints() { return mSpawnPoints; }
 
-    void SetTarget(sf::RenderWindow* val) { mpTarget = val; }
+    void SetTarget(sf::RenderWindow* val) { mRenderTarget = val; }
     void SetTileEngine(TileEngine val) { mTileEngine = val; }
-    void SetPlayers(std::vector<Character*> val) { mPlayers = val; }
+    void SetPlayers(std::vector<Character> val) { mPlayerVec = val; }
 
     void Render();
     void Update(KeyState pKeyState);
-    void AddPlayer(Character* val) { mPlayers.push_back(val); }
+    void AddPlayer(Character val) { mPlayerVec.push_back(val); }
+    void SetSpawnPoint(unsigned int index, sf::Vector2f point);
 
 private:
-    bool CheckTileSolidColision(std::vector<sf::Vector2f> CornerPoints) const;
-    sf::Vector2f GetPlayerNewPosition(Character& pPlayer, KeyState pKeyState);
-    sf::Vector2f GetBulletNewPosition(Projectile& pProjectile);
-    float GenerateAiDirection(Character* pCharacter, KeyState val);
+    bool CheckTileSolidColision(std::vector<sf::Vector2f> cornerPoints) const;
+    sf::Vector2f GetPlayerNewPosition(Character& Player, KeyState moveDirection);
+    sf::Vector2f GetBulletNewPosition(Projectile& projectile);
+    float GenerateAiDirection(Character* pCharacter, KeyState moveDirection);
     KeyState AiMoveDecide(Character* pCharacter);
 
-    sf::RenderWindow* mpTarget;
+    sf::RenderWindow* mRenderTarget;
     TileEngine mTileEngine;
-    std::vector<Character*> mPlayers;
-
+    std::vector<Character> mPlayerVec;
+    sf::View mGameView;
     sf::Clock mFrameClock;
     float mFrameTime;
+    std::vector<sf::Vector2f> mSpawnPoints;
 };
 
 #endif // LEVELENTITYMANAGER_H

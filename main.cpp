@@ -16,13 +16,11 @@ sf::RenderWindow window;
 LevelEntityManager TestLevel;
 KeyState KeysPressed;
 
-Character MyPlayer;
-Character MyPlayer2;
 TileEngine MyEngine;
 
 int main()
 {
-    srand (time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
 
     settings.antialiasingLevel = 8;
     window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist", sf::Style::Default, settings);
@@ -41,26 +39,22 @@ void GenerateTestLevel()
     sf::Texture MyTexture;
     sf::Texture TileSet;
 
+	
+
+	std::vector<Character> MyPlayerVec;
+
     MyTexture.loadFromFile("PlaceHolderPlayer.png");
     TileSet.loadFromFile("TileSet.png");
 
-    MyPlayer.SetTexture(MyTexture);
-    MyPlayer.SetWeapon(GetWeaponStat(SMGWeapon));
-    MyPlayer.SetHealth(100);
-    MyPlayer.SetPosX(512);
-    MyPlayer.SetPosY(512);
-    MyPlayer.SetSpeed(150);
-    MyPlayer.SetPlayerID(PlayerCharacter);
-    MyPlayer.SetTeamId(0);
+	Character MyPlayer(512, 512, MyTexture, HUMAN_CHARACTER, 0, GetWeaponStat(SMGWeapon), 150, 100);
 
-    MyPlayer2.SetTexture(MyTexture);
-    MyPlayer2.SetWeapon(GetWeaponStat(SMGWeapon));
-    MyPlayer2.SetHealth(100);
-    MyPlayer2.SetPosX(256);
-    MyPlayer2.SetPosY(256);
-    MyPlayer2.SetSpeed(10);
-    MyPlayer2.SetPlayerID(AiCharacter);
-    MyPlayer.SetTeamId(1);
+	MyPlayerVec.push_back(MyPlayer);
+
+	for (int i = 0; i < 1; i++)
+	{
+		Character MyPlayer2(rand() % 500, rand() % 500, MyTexture, AI_CHARACTER, 1, GetWeaponStat(SMGWeapon), 100, 100);
+		MyPlayerVec.push_back(MyPlayer2);
+	}
 
     std::vector<std::vector<int> > TileIDVec;
     std::vector<std::vector<bool> > SolidStateVec;
@@ -72,9 +66,9 @@ void GenerateTestLevel()
 
         for (unsigned int j = 0; j < MapWidth; j++)
         {
-            intRow.push_back(rand() % 10);
+            intRow.push_back(rand() % 5);
 
-            if (intRow[j] > 1)
+            if (intRow[j] >= 1)
                 intRow[j] = 1;
 
             if (intRow[j] == 0)
@@ -87,16 +81,13 @@ void GenerateTestLevel()
         TileIDVec.push_back(intRow);
     }
 
-    MyEngine.LoadFromParam(32, 32, MapWidth, MapHeight, TileSet, TileIDVec, SolidStateVec, 64, 64);
-
-    std::vector<Character*> MyPlayerVec;
-
-    MyPlayerVec.push_back(&MyPlayer);
-    MyPlayerVec.push_back(&MyPlayer2);
+    MyEngine.LoadFromParam(32, 32, MapWidth, MapHeight, TileSet, TileIDVec, SolidStateVec, 0, 0);
 
     TestLevel.SetPlayers(MyPlayerVec);
     TestLevel.SetTileEngine(MyEngine);
     TestLevel.SetTarget(&window);
+    TestLevel.SetSpawnPoint(0, sf::Vector2f(150, 100));
+    TestLevel.SetSpawnPoint(1, sf::Vector2f(300, 200));
 }
 
 void PollEvent()
