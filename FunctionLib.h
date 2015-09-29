@@ -4,7 +4,7 @@
 #include "Entity.h"
 #include "SFML/Graphics.hpp"
 
-const float _PI = 3.14f;
+const float Pi = 3.14f;
 
 namespace FunctionLib
 {
@@ -12,7 +12,7 @@ namespace FunctionLib
     float DistanceBetween(Entity& entity1, Entity& entity2);
     float ToDegrees(float radians);
     float ToRadians(float degrees);
-    float DirectionToPoint(float x1, float y1, float x2, float y2); //returns in radians the angle from a(x, y) to b(x, y)
+    float DirectionToPoint(float x1, float y1, float x2, float y2);				//returns in radians the angle from a(x, y) to b(x, y)
     float DirectionToPoint(Entity& entity1, Entity& entity2);                   //returns in radians the angle from a to b
 
     std::vector<sf::Vector2f> GenerateBoxFromSprite(sf::Sprite& sprite);

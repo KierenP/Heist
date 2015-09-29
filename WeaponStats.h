@@ -19,7 +19,7 @@
         ShotGunWeapon,
     };
 
-    WeaponStats GetWeaponStat(WeaponTypes WeaponID);
+    WeaponStats GetWeaponStat(WeaponTypes weaponID);
 
 
     #endif // WEAPONSTATS_H_INCLUDED

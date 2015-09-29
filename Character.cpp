@@ -104,4 +104,11 @@ void Character::GenerateProjectile()
     mProjectiles.push_back(Temp);
 }
 
+Projectile Character::GetProjectile(unsigned int index)
+{
+	if (index < mProjectiles.size())
+		return mProjectiles[index];
+	return mProjectiles[0];
+}
+
 

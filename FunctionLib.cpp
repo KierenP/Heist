@@ -23,12 +23,12 @@ float FunctionLib::DistanceBetween(Entity& pEntity1, Entity& pEntity2)
 
 float FunctionLib::ToDegrees(float radians)
 {
-    return radians * (180 / _PI);
+    return radians * (180 / Pi);
 }
 
 float FunctionLib::ToRadians(float degrees)
 {
-    return degrees * (_PI / 180);
+	return degrees * (Pi / 180);
 }
 
 float FunctionLib::DirectionToPoint(float ax, float ay, float bx, float by)

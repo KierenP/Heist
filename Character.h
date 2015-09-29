@@ -52,7 +52,7 @@ public:
     void GenerateProjectile();														//Create a new Projectile object push_back it to mProjectiles
     void RemoveProjectile(unsigned int index);										//Remove Projectile at given position in mProjectiles
     void Update(float timeStep, KeyState moveDirection, bool willCollide);			//Update the players mSprite and position, as well as the mProjectiles
-	Projectile GetProjectile(unsigned int index) { return mProjectiles.at(index); }	//Return a copy of the Projectile stored in mProjectiles at given index
+	Projectile GetProjectile(unsigned int index);									//Return a copy of the Projectile stored in mProjectiles at given index
 
 private:
     void RenderProjectiles(sf::RenderWindow* pTarget);								//Draw each Projectiles in mProjectiles's mSprite

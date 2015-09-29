@@ -1,11 +1,11 @@
 #include "WeaponStats.h"
 
-WeaponStats GetWeaponStat(WeaponTypes WeaponID)
+WeaponStats GetWeaponStat(WeaponTypes weaponID)
 {
     WeaponStats WeaponIDStats;
     sf::Texture WeaponIDTexture;
 
-    switch (WeaponID)
+	switch (weaponID)
     {
         case RifleWeapon:
             WeaponIDTexture.loadFromFile("Bullet2.png");

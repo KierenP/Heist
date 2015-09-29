@@ -50,7 +50,7 @@ void TileEngine::LoadFromParam(unsigned int pTileWidth, unsigned int pTileHeight
 
             TempTile.mSolidState = pSolidStateVec[i][j];
             TempTile.mTileSprite.setTexture(mTileSet);
-			TempTile.mTileSprite.setTextureRect(sf::IntRect((pTileIDVec[i][j] % static_cast<int>(mTileSet.getSize().x / mTileWidth)) * mTileWidth, static_cast<int>(pTileIDVec[i][j] / (mTileSet.getSize().y / mTileHeight)) * mTileHeight, static_cast<int>(mTileWidth), static_cast<int>(mTileHeight)));
+			TempTile.mTileSprite.setTextureRect(sf::IntRect((pTileIDVec[i][j] % static_cast<int>(mTileSet.getSize().x / mTileWidth)) * mTileWidth, static_cast<int>(pTileIDVec[i][j] / (mTileSet.getSize().x / mTileWidth)) * mTileHeight, static_cast<int>(mTileWidth), static_cast<int>(mTileHeight)));
 
             Row.push_back(TempTile);
         }

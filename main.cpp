@@ -3,15 +3,15 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
-void PollEvent();
-void Render();
-void Update();
+void PollEvent(sf::RenderWindow& renderTarget);
+void Render(LevelEntityManager& manager, sf::RenderWindow& target);
+void Update(LevelEntityManager& manager, KeyState& PressedKeys);
 void GenerateTestLevel();
+KeyState GetKeyInput();
 
 unsigned int const MapWidth = 30;
 unsigned int const MapHeight = 30;
 
-sf::ContextSettings settings;
 sf::RenderWindow window;
 LevelEntityManager TestLevel;
 KeyState KeysPressed;
@@ -22,6 +22,7 @@ int main()
 {
     srand(static_cast<unsigned int>(time(NULL)));
 
+	sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     window.create(sf::VideoMode(sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height), "Heist", sf::Style::Default, settings);
 
@@ -29,8 +30,9 @@ int main()
 
     while (window.isOpen())
     {
-        PollEvent();
-        Render();
+        PollEvent(window);
+		Update(TestLevel, KeysPressed);
+		Render(TestLevel, window);
     }
 }
 
@@ -39,21 +41,22 @@ void GenerateTestLevel()
     sf::Texture MyTexture;
     sf::Texture TileSet;
 
-	
-
 	std::vector<Character> MyPlayerVec;
 
     MyTexture.loadFromFile("PlaceHolderPlayer.png");
     TileSet.loadFromFile("TileSet.png");
 
-	Character MyPlayer(512, 512, MyTexture, HUMAN_CHARACTER, 0, GetWeaponStat(SMGWeapon), 150, 100);
+	Character MyPlayer(64, 64, MyTexture, HUMAN_CHARACTER, 0, GetWeaponStat(SMGWeapon), 150, 100);
 
 	MyPlayerVec.push_back(MyPlayer);
 
 	for (int i = 0; i < 1; i++)
 	{
-		Character MyPlayer2(rand() % 500, rand() % 500, MyTexture, AI_CHARACTER, 1, GetWeaponStat(SMGWeapon), 100, 100);
+		Character MyPlayer2(32 * 26, 32 * 26, MyTexture, AI_CHARACTER, 1, GetWeaponStat(SMGWeapon), 100, -1);
 		MyPlayerVec.push_back(MyPlayer2);
+
+		Character MyPlayer3(32 * 4, 32 * 4, MyTexture, AI_CHARACTER, 0, GetWeaponStat(SMGWeapon), 100, -1);
+		MyPlayerVec.push_back(MyPlayer3);
 	}
 
     std::vector<std::vector<int> > TileIDVec;
@@ -81,44 +84,53 @@ void GenerateTestLevel()
         TileIDVec.push_back(intRow);
     }
 
-    MyEngine.LoadFromParam(32, 32, MapWidth, MapHeight, TileSet, TileIDVec, SolidStateVec, 0, 0);
+    //MyEngine.LoadFromParam(32, 32, MapWidth, MapHeight, TileSet, TileIDVec, SolidStateVec, 0, 0);
 
     TestLevel.SetPlayers(MyPlayerVec);
     TestLevel.SetTileEngine(MyEngine);
     TestLevel.SetTarget(&window);
-    TestLevel.SetSpawnPoint(0, sf::Vector2f(150, 100));
-    TestLevel.SetSpawnPoint(1, sf::Vector2f(300, 200));
+	TestLevel.SetSpawnPoint(0, sf::Vector2f(32 * 4, 32 * 4));
+	TestLevel.SetSpawnPoint(1, sf::Vector2f(32 * 26, 32 * 25));
+
+	TestLevel.GenerateDustTestLevel();
 }
 
-void PollEvent()
+void PollEvent(sf::RenderWindow& renderTarget)
 {
     sf::Event event;
 
-    while (window.pollEvent(event))
+	while (renderTarget.pollEvent(event))
     {
         if (event.type == sf::Event::Closed)
-            window.close();
+			renderTarget.close();
     }
-
-    Update();
 }
 
-void Update()
+KeyState GetKeyInput()
 {
-    KeysPressed.LMBPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
-    KeysPressed.LeftPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
-    KeysPressed.RightPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
-    KeysPressed.UpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-    KeysPressed.DownPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
+	KeyState KeyStates;
 
-    TestLevel.Update(KeysPressed);
+	KeyStates.LMBPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
+	KeyStates.LeftPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
+	KeyStates.RightPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+	KeyStates.UpPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
+	KeyStates.DownPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
+
+	return KeyStates;
 }
 
-void Render()
+void Update(LevelEntityManager& manager, KeyState& PressedKeys)
 {
-    window.clear();
-    TestLevel.Render();
-    window.display();
+	PressedKeys = GetKeyInput();
+
+	manager.Update(PressedKeys);
+}
+
+void Render(LevelEntityManager& manager, sf::RenderWindow& target)
+{
+	target.clear();
+	manager.Render();
+	target.display();
 }
 
 
