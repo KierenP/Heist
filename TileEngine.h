@@ -9,6 +9,11 @@ struct Tile
 {
     sf::Sprite mTileSprite;
     bool mSolidState;
+    unsigned int h;
+    unsigned int f;
+    unsigned int g;
+    short int ParentX;
+    short int ParentY;
 };
 
 class TileEngine

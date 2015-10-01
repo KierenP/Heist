@@ -144,6 +144,17 @@ float LevelEntityManager::GenerateAiDirection(Character* pCharacter, KeyState va
 
 KeyState LevelEntityManager::AiMoveDecide(Character* pCharacter)
 {
+    std::vector<std::vector<Tile> > Tiles = mTileEngine.GetTiles();
+
+    //Tiles[0][0].h = 17;
+
+    float Targetx = mPlayers[0]->GetPosX();
+
+    std::vector<sf::Vector2u> > OpenList;
+
+    Tiles[OpenList[0].y][OpenList[0].x].mSolidState
+
+
     /*
 
         This is the *big* function.
